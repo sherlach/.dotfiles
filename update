@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# remapping was a one-off static thing, no need to update
+
+# update bash stuff
+
+cp -v ~/.bash_profile ~/.bashrc ~/customisations/bash
+
+# update tmux stuff
+
+cp -v ~/.tmux.conf ~/customisations/tmux #tmux.batt is also static
+
+# update vim stuff
+
+cp -v ~/.vimrc ~/customisations/vim
+
+# update w3m stuff
+
+# update irssi?
+
+

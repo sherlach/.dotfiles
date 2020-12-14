@@ -1,0 +1,5 @@
+include "us.map"
+
+
+keycode 58 = Control
+keycode 54 = Escape
