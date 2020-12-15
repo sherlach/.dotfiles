@@ -16,6 +16,8 @@ cp -v ~/.vimrc ~/customisations/vim
 
 # update w3m stuff
 
-# update irssi?
+# update irssi? mutt?
 
+# update the configs for the most important software on my system. Nethack.
 
+cp -v ~/.nethackrc ~/customisations/nethack

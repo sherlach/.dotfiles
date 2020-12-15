@@ -1,0 +1,22 @@
+OPTIONS=showexp,showscore,time,color,!autopickup
+
+OPTIONS=bones,tombstone
+OPTIONS=fruit:"Big Mac"
+OPTIONS=hilite_pet
+
+OPTIONS=number_pad:0
+OPTIONS=lit_corridor
+
+OPTIONS=disclose:yiavgco
+
+#Most extra configging to be done will be in menucolors
+
+OPTIONS=menucolors
+MENUCOLOR=" blessed "=green
+MENUCOLOR=" holy "=green
+MENUCOLOR=" cursed "=red
+MENUCOLOR=" unholy "=red
+MENUCOLOR=" cursed .* (being worn)"=orange&underline
+
+OPTIONS=sortloot:full
+
