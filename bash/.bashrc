@@ -18,3 +18,4 @@ fi
 # Put your fun stuff here.
 
 export EDITOR=vim
+alias emerge="doas emerge -av" #obviously, gentoo-specific

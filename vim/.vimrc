@@ -32,3 +32,6 @@ inoremap 	{}	{}
 inoremap 	(	()<Left>
 inoremap <expr>	)	strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>": ")"
 
+" replicate thus mappings for square braces
+inoremap	[	[]<Left>
+inoremap <expr>	]	strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"

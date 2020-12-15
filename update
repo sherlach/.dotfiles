@@ -3,21 +3,17 @@
 # remapping was a one-off static thing, no need to update
 
 # update bash stuff
-
 cp -v ~/.bash_profile ~/.bashrc ~/customisations/bash
 
 # update tmux stuff
-
 cp -v ~/.tmux.conf ~/customisations/tmux #tmux.batt is also static
 
 # update vim stuff
-
 cp -v ~/.vimrc ~/customisations/vim
 
 # update w3m stuff
 
-# update irssi? mutt?
+# update irssi?
 
 # update the configs for the most important software on my system. Nethack.
-
 cp -v ~/.nethackrc ~/customisations/nethack
