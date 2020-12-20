@@ -17,5 +17,6 @@ fi
 
 # Put your fun stuff here.
 
+stty -ixon
 export EDITOR=vim
 alias emerge="doas emerge -av" #obviously, gentoo-specific

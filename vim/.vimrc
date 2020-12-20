@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 " plugins go here
 
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
@@ -18,7 +19,7 @@ filetype plugin indent on
 " END VUNDLE SECTION
 
 
-" some setting I like
+" some settings I like
 set relativenumber
 set foldmethod=syntax
 
