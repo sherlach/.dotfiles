@@ -20,3 +20,10 @@ MENUCOLOR=" cursed .* (being worn)"=orange&underline
 
 OPTIONS=sortloot:full
 
+MSGTYPE=stop "You are beginning to feel weak."
+MSGTYPE=stop "The .* (grabs|swings itself around) you!"
+MSGTYPE=stop "You are slowing down."
+MSGTYPE=stop "You don't feel very well."
+MSGTYPE=stop "You feel feverish"
+
+
