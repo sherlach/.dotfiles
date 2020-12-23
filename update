@@ -5,6 +5,10 @@
 # update bash stuff
 cp -v ~/.bash_profile ~/.bashrc ~/customisations/bash
 
+# update fish stuff
+
+cp -v ~/.config/fish/* ~/customisations/fish
+
 # update tmux stuff
 cp -v ~/.tmux.conf ~/customisations/tmux #tmux.batt is also static
 

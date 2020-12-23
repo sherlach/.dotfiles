@@ -22,7 +22,7 @@ alias emerge="doas emerge -av" #obviously, gentoo-specific
 
 if [ ! "$TMUX" ]; then
 	echo
-	fortune
+	fortune -ac
 	echo
 	read -r -p "You are not currently in a tmux session. Like to start one now? [Y/n]" preference
 
