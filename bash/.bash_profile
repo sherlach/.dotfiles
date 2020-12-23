@@ -5,18 +5,3 @@
 if [[ -f ~/.bashrc ]] ; then
 	. ~/.bashrc
 fi
-
-if [ ! "$TMUX" ]; then
-	echo
-	fortune
-	echo
-	read -r -p "You are not currently in a tmux session. Like to start one now? [Y/n]" preference
-
-	case "$preference" in  
-		[nN][oO]|[nN]) # I don't know what these[] are doing, gotta check!
-			;;
-		*)
-			tmux
-			;;
-	esac
-fi

@@ -14,9 +14,28 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-
 # Put your fun stuff here.
 
 stty -ixon
 export EDITOR=vim
 alias emerge="doas emerge -av" #obviously, gentoo-specific
+
+if [ ! "$TMUX" ]; then
+	echo
+	fortune
+	echo
+	read -r -p "You are not currently in a tmux session. Like to start one now? [Y/n]" preference
+
+	case "$preference" in  
+		[nN][oO]|[nN]) # I don't know what these[] are doing, gotta check!
+			;;
+		*)
+			tmux
+			;;
+	esac
+fi
+
+# Keep this line at the bottom of the bashrc
+
+[ -x /bin/fish ] && SHELL=/bin/fish exec /bin/fish
+
