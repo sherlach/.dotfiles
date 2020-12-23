@@ -15,6 +15,9 @@ cp -v ~/.tmux.conf ~/customisations/tmux #tmux.batt is also static
 # update vim stuff
 cp -v ~/.vimrc ~/customisations/vim
 
+# update nvim stuff
+
+cp -v ~/.config/nvim/* ~/customisations/nvim
 # update w3m stuff
 
 # update irssi?
