@@ -18,6 +18,7 @@ fi
 
 stty -ixon
 export EDITOR=vim
+export LANG=en_US.utf8
 alias emerge="doas emerge -av" #obviously, gentoo-specific
 
 if [ ! "$TMUX" ]; then
@@ -27,7 +28,7 @@ if [ ! "$TMUX" ]; then
 	read -r -p "You are not currently in a tmux session. Like to start one now? [Y/n]" preference
 
 	case "$preference" in  
-		[nN][oO]|[nN]) # I don't know what these[] are doing, gotta check!
+		[nN][oO]|[nN]) # regex gang
 			;;
 		*)
 			tmux
@@ -37,5 +38,7 @@ fi
 
 # Keep this line at the bottom of the bashrc
 
-[ -x /bin/fish ] && SHELL=/bin/fish exec /bin/fish
+
+# Commenting out the fish line due to causing some compatibility issues
+#[ -x /bin/fish ] && SHELL=/bin/fish exec /bin/fish
 

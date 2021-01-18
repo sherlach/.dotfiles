@@ -7,7 +7,7 @@ cp -v ~/customisations/bash/.bash_profile ~/.bash_profile
 cp -v ~/customisations/bash/.bashrc ~/.bashrc
 
 # update fish stuff
-cp -v -r ~/customisations/fish ~/.config/fish/ 
+cp -v -r ~/customisations/fish ~/.config/ 
 
 # update tmux stuff
 cp -v ~/customisations/tmux/.tmux.conf ~/.tmux.conf
@@ -16,7 +16,7 @@ cp -v ~/customisations/tmux/.tmux.conf ~/.tmux.conf
 cp -v ~/customisations/vim/.vimrc ~/.vimrc
 
 # update nvim stuff
-cp -v -r ~/customisations/nvim ~/.config/nvim
+cp -v -r ~/customisations/nvim ~/.config/
 
 # update alacritty stuff
 cp -v ~/customisations/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 

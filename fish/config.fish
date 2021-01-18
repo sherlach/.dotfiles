@@ -1,2 +1,4 @@
 set -U EDITOR vim
-set --erase fish_greeting
+set -U --erase fish_greeting
+
+
