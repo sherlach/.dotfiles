@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# remapping of console is gentoo specific and should be done manually 
+
+# update bash stuff
+cp -v ~/customisations/bash/.bash_profile ~/.bash_profile
+cp -v ~/customisations/bash/.bashrc ~/.bashrc
+
+# update fish stuff
+cp -v -r ~/customisations/fish ~/.config/fish/ 
+
+# update tmux stuff
+cp -v ~/customisations/tmux/.tmux.conf ~/.tmux.conf
+
+# update vim stuff
+cp -v ~/customisations/vim/.vimrc ~/.vimrc
+
+# update nvim stuff
+cp -v -r ~/customisations/nvim ~/.config/nvim
+
+# update alacritty stuff
+cp -v ~/customisations/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 
+
+# update w3m stuff
+#not yet implemented
+# update irssi?
+#not yet implemented
+
+# update the configs for the most important software on my system. Nethack.
+cp -v ~/customisations/nethack/.nethackrc ~/.nethackrc 

@@ -6,7 +6,6 @@
 cp -v ~/.bash_profile ~/.bashrc ~/customisations/bash
 
 # update fish stuff
-
 cp -v ~/.config/fish/* ~/customisations/fish
 
 # update tmux stuff
@@ -16,11 +15,15 @@ cp -v ~/.tmux.conf ~/customisations/tmux #tmux.batt is also static
 cp -v ~/.vimrc ~/customisations/vim
 
 # update nvim stuff
-
 cp -v ~/.config/nvim/* ~/customisations/nvim
-# update w3m stuff
 
+# update alacritty stuff
+cp -v ~/.config/alacritty/alacritty.yml ~/customisations/alacritty
+
+# update w3m stuff
+#not yet implemented
 # update irssi?
+#not yet implemented
 
 # update the configs for the most important software on my system. Nethack.
 cp -v ~/.nethackrc ~/customisations/nethack
