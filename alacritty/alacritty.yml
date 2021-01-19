@@ -244,12 +244,12 @@
   #
   # Allowed values are CellForeground and CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
-  #selection:
+  #  selection:
   #  text: CellBackground
   #  background: CellForeground
 
   # Normal colors
-  #normal:
+  # normal:
   #  black:   '#1d1f21'
   #  red:     '#cc6666'
   #  green:   '#b5bd68'
@@ -269,7 +269,7 @@
   #  magenta: '#c397d8'
   #  cyan:    '#70c0b1'
   #  white:   '#eaeaea'
-
+  
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based
@@ -283,7 +283,34 @@
   #  magenta: '#75617b'
   #  cyan:    '#5b7d78'
   #  white:   '#828482'
+# Colors (Blood Moon)
+#colors:
+  # Default colors
+  #  primary:
+  #  background: '0x10100E'
+  #  foreground: '0xC6C6C4'
 
+  # Normal colors
+  #normal:
+  #  black:   '0x10100E'
+  #  red:     '0xC40233'
+  #  green:   '0x009F6B'
+  #  yellow:  '0xFFD700'
+  #  blue:    '0x0087BD'
+  #  magenta: '0x9A4EAE'
+  #  cyan:    '0x20B2AA'
+  #  white:   '0xC6C6C4'
+
+  # Bright colors
+  #bright:
+  #  black:   '0x696969'
+  #  red:     '0xFF2400'
+  #  green:   '0x03C03C'
+  #  yellow:  '0xFDFF00'
+  #  blue:    '0x007FFF'
+  #  magenta: '0xFF1493'
+  #  cyan:    '0x00CCCC'
+  #  white:   '0xFFFAFA'
   # Indexed Colors
   #
   # The indexed colors include all colors from 16 to 256.
@@ -293,7 +320,34 @@
   #   `- { index: 16, color: '#ff00ff' }`
   #
   #indexed_colors: []
+# Colors (Terminal.app)
+colors:
+  # Default colors
+  primary:
+    background: '0x000000'
+    foreground: '0xb6b6b6'
 
+  # Normal colors
+  normal:
+    black:   '0x000000'
+    red:     '0x990000'
+    green:   '0x00a600'
+    yellow:  '0x999900'
+    blue:    '0x0000b2'
+    magenta: '0xb200b2'
+    cyan:    '0x00a6b2'
+    white:   '0xbfbfbf'
+
+  # Bright colors
+  bright:
+    black:   '0x666666'
+    red:     '0xe50000'
+    green:   '0x00d900'
+    yellow:  '0xe5e500'
+    blue:    '0x0000ff'
+    magenta: '0xe500e5'
+    cyan:    '0x00e5e5'
+    white:   '0xe5e5e5'
 # Bell
 #
 # The bell is rung every time the BEL control character is received.
@@ -382,7 +436,7 @@
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  #unfocused_hollow: true
+  unfocused_hollow: true
 
   # Thickness of the cursor relative to the cell width as floating point number
   # from `0.0` to `1.0`.
@@ -425,7 +479,7 @@
   #triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  #hide_when_typing: false
+  hide_when_typing: true
 
   #url:
     # URL launcher
@@ -810,3 +864,5 @@
 
   # Print all received window events.
   #print_events: false
+
+
