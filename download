@@ -26,5 +26,8 @@ cp -v ~/customisations/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 # update irssi?
 #not yet implemented
 
+# update amfora stuff
+cp -v ~/customisations/amfora/config.toml ~/.config/amfora
+
 # update the configs for the most important software on my system. Nethack.
 cp -v ~/customisations/nethack/.nethackrc ~/.nethackrc 
