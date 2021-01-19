@@ -27,6 +27,7 @@ cp -v ~/.config/alacritty/alacritty.yml ~/customisations/alacritty
 
 # update amfora stuff
 cp -v ~/.config/amfora/config.toml ~/customisations/amfora
+cp -v ~/.config/amfora/newtab.gmi ~/customisations/amfora
 
 # update the configs for the most important software on my system. Nethack.
 cp -v ~/.nethackrc ~/customisations/nethack
