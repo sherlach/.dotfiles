@@ -6,9 +6,6 @@
 |_| \_|\___| \_/\_/     |_|\__,_|_.__/ 
 ```                                       
 
-# New Tab
-
-I sure hope this works!
 
 ## Internal Pages
 
@@ -16,8 +13,10 @@ I sure hope this works!
 => about:subscriptions
 
 
-##More links!
+## More links!
 
 => gemini://makeworld.gg/amfora-wiki Amfora Wiki [On Gemini!!]
 => gemini://gemini.circumlunar.space Project Gemini
+=> gemini://gus.guru 		     Gemini Universal Search
+=> gemini://gemini.circumlunar.space/docs/cheatsheet.gmi Gemtext Cheatsheet
 
