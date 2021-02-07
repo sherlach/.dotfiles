@@ -19,6 +19,7 @@ fi
 stty -ixon
 export EDITOR=vim
 export LANG=en_US.utf8
+export PATH=$PATH:~/go/bin
 alias emerge="doas emerge -av" #obviously, gentoo-specific
 
 if [ ! "$TMUX" ]; then

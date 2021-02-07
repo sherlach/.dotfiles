@@ -10,8 +10,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'tmux-plugins/vim-tmux'
-Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/goyo.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -20,8 +20,22 @@ filetype plugin indent on
 
 
 " some settings I like
-set relativenumber
+set number relativenumber
 set foldmethod=syntax
+set ic
+
+" consider let mapleader = " "
+set wildmode=longest,list,full
+
+" goyo command
+map <leader>f :Goyo \| set linebreak<CR>
+
+" spellcheck is <leader>o
+map <leader>o :setlocal spell! spelllang*en<CR>
+
+" splits open at bottom and right
+set splitbelow splitright
+
 
 " convenient brace remappings
 inoremap 	{	{}<Left>
