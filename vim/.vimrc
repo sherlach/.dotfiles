@@ -23,6 +23,8 @@ filetype plugin indent on
 set number relativenumber
 set foldmethod=syntax
 set ic
+set expandtab 
+set tabstop=2 shiftwidth=2
 
 " consider let mapleader = " "
 set wildmode=longest,list,full
@@ -31,7 +33,8 @@ set wildmode=longest,list,full
 map <leader>f :Goyo \| set linebreak<CR>
 
 " spellcheck is <leader>o
-map <leader>o :setlocal spell! spelllang*en<CR>
+map <leader>o :setlocal spell! <CR> 
+"spelllang*en<CR>
 
 " splits open at bottom and right
 set splitbelow splitright
