@@ -1,10 +1,16 @@
-#!/bin/bash
+#!/bin/sh
 
 # remapping of console is gentoo specific and should be done manually 
 
+CONFIG_FOLDER=~/customisations
+
+# sh stuff
+
+cp -v $CONFIG_FOLDER/sh/.profile ~/.profile
+
 # update bash stuff
-cp -v ~/customisations/bash/.bash_profile ~/.bash_profile
-cp -v ~/customisations/bash/.bashrc ~/.bashrc
+#cp -v ~/customisations/bash/.bash_profile ~/.bash_profile
+#cp -v ~/customisations/bash/.bashrc ~/.bashrc
 
 # update fish stuff
 cp -v -r ~/customisations/fish ~/.config/ 
@@ -16,10 +22,10 @@ cp -v ~/customisations/tmux/.tmux.conf ~/.tmux.conf
 cp -v ~/customisations/vim/.vimrc ~/.vimrc
 
 # update nvim stuff
-cp -v -r ~/customisations/nvim ~/.config/
+#cp -v -r ~/customisations/nvim ~/.config/
 
 # update alacritty stuff
-cp -v ~/customisations/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 
+#cp -v ~/customisations/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 
 
 # update w3m stuff
 #not yet implemented

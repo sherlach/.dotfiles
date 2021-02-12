@@ -1,9 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
 # remapping was a one-off static thing, no need to update
 
+CONFIG_FOLDER=~/customisations
+
+# update sh stuff
+cp -v ~/.profile $CONFIG_FOLDER/sh
+
 # update bash stuff
-cp -v ~/.bash_profile ~/.bashrc ~/customisations/bash
+#cp -v ~/.bash_profile ~/.bashrc ~/customisations/bash
 
 # update fish stuff
 cp -v ~/.config/fish/* ~/customisations/fish
@@ -15,10 +20,10 @@ cp -v ~/.tmux.conf ~/customisations/tmux #tmux.batt is also static
 cp -v ~/.vimrc ~/customisations/vim
 
 # update nvim stuff
-cp -v ~/.config/nvim/* ~/customisations/nvim
+#cp -v ~/.config/nvim/* ~/customisations/nvim
 
 # update alacritty stuff
-cp -v ~/.config/alacritty/alacritty.yml ~/customisations/alacritty
+#cp -v ~/.config/alacritty/alacritty.yml ~/customisations/alacritty
 
 # update w3m stuff
 #not yet implemented
