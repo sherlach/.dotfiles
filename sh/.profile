@@ -4,5 +4,9 @@
 
 PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games
 TERM=wsvt25
+EDITOR=vise
+
+
 set -o vi
-export PATH HOME TERM
+
+export EDITOR PATH HOME TERM

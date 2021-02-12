@@ -18,6 +18,9 @@ cp -v -r ~/customisations/fish ~/.config/
 # update tmux stuff
 cp -v ~/customisations/tmux/.tmux.conf ~/.tmux.conf
 
+# update vise stuff
+cp -v -r $CONFIG_FOLDER/vis ~/.config/ 
+
 # update vim stuff
 cp -v ~/customisations/vim/.vimrc ~/.vimrc
 
