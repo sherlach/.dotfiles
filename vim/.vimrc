@@ -1,5 +1,6 @@
 set nocompatible
 filetype off
+syntax on
 
 " let Vundle do its plugin management thing
 set rtp+=~/.vim/bundle/Vundle.vim
