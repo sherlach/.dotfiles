@@ -2,31 +2,38 @@
 
 # remapping was a one-off static thing, no need to update
 
-CONFIG_FOLDER=~/customisations
+CONFIG_FOLDER=~/configs
 
 # update sh stuff
 cp -v ~/.profile $CONFIG_FOLDER/sh
 
 # update bash stuff
-#cp -v ~/.bash_profile ~/.bashrc ~/customisations/bash
+#cp -v ~/.bash_profile ~/.bashrc $CONFIG_FOLDER/bash
 
 # update fish stuff
-cp -v ~/.config/fish/* ~/customisations/fish
+cp -v ~/.config/fish/* $CONFIG_FOLDER/fish
 
 # update tmux stuff
-cp -v ~/.tmux.conf ~/customisations/tmux #tmux.batt is also static
+cp -v ~/.tmux.conf $CONFIG_FOLDER/tmux #tmux.batt is also static
 
 # update vis stuff
 cp -v ~/.config/vis/* $CONFIG_FOLDER/vis
 
 # update vim stuff
-cp -v ~/.vimrc ~/customisations/vim
+cp -v ~/.vimrc $CONFIG_FOLDER/vim
 
 # update nvim stuff
-#cp -v ~/.config/nvim/* ~/customisations/nvim
+#cp -v ~/.config/nvim/* $CONFIG_FOLDER/nvim
 
 # update alacritty stuff
-#cp -v ~/.config/alacritty/alacritty.yml ~/customisations/alacritty
+cp -v ~/.config/alacritty/alacritty.yml $CONFIG_FOLDER/alacritty
+
+# update emacs
+cp -v ~/.emacs.d/init.el $CONFIG_FOLDER/emacs/init.el
+
+# update xmonad
+cp -v ~/.xmonad/xmonad.hs $CONFIG_FOLDER/xmonad/xmonad.hs
+
 
 # update w3m stuff
 #not yet implemented
@@ -34,8 +41,8 @@ cp -v ~/.vimrc ~/customisations/vim
 #not yet implemented
 
 # update amfora stuff
-cp -v ~/.config/amfora/config.toml ~/customisations/amfora
-cp -v ~/.config/amfora/newtab.gmi ~/customisations/amfora
+cp -v ~/.config/amfora/config.toml $CONFIG_FOLDER/amfora
+cp -v ~/.config/amfora/newtab.gmi $CONFIG_FOLDER/amfora
 
 # update the configs for the most important software on my system. Nethack.
-cp -v ~/.nethackrc ~/customisations/nethack
+cp -v ~/.nethackrc $CONFIG_FOLDER/nethack

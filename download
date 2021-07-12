@@ -2,7 +2,7 @@
 
 # remapping of console is gentoo specific and should be done manually 
 
-CONFIG_FOLDER=~/customisations
+CONFIG_FOLDER=~/configs
 
 # sh stuff
 
@@ -13,22 +13,28 @@ cp -v $CONFIG_FOLDER/sh/.profile ~/.profile
 #cp -v ~/customisations/bash/.bashrc ~/.bashrc
 
 # update fish stuff
-cp -v -r ~/customisations/fish ~/.config/ 
+cp -v -r $CONFIG_FOLDER/fish ~/.config/ 
 
 # update tmux stuff
-cp -v ~/customisations/tmux/.tmux.conf ~/.tmux.conf
+cp -v $CONFIG_FOLDER/tmux/.tmux.conf ~/.tmux.conf
 
-# update vise stuff
+# update vis stuff
 cp -v -r $CONFIG_FOLDER/vis ~/.config/ 
 
 # update vim stuff
-cp -v ~/customisations/vim/.vimrc ~/.vimrc
+cp -v $CONFIG_FOLDER/vim/.vimrc ~/.vimrc
 
 # update nvim stuff
 #cp -v -r ~/customisations/nvim ~/.config/
 
 # update alacritty stuff
-#cp -v ~/customisations/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 
+cp -v $CONFIG_FOLDER/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 
+
+#xmonad
+cp -v $CONFIG_FOLDER/xmonad/xmonad.hs ~/.xmonad/xmonad.hs 
+
+#emacs
+cp -v $CONFIG_FOLDER/emacs/init.el ~/.emacs.d/init.el
 
 # update w3m stuff
 #not yet implemented
@@ -36,8 +42,8 @@ cp -v ~/customisations/vim/.vimrc ~/.vimrc
 #not yet implemented
 
 # update amfora stuff
-cp -v ~/customisations/amfora/config.toml ~/.config/amfora
-cp -v ~/customisations/amfora/newtab.gmi ~/.config/amfora
+cp -v $CONFIG_FOLDER/amfora/config.toml ~/.config/amfora
+cp -v $CONFIG_FOLDER/amfora/newtab.gmi ~/.config/amfora
 
 # update the configs for the most important software on my system. Nethack.
-cp -v ~/customisations/nethack/.nethackrc ~/.nethackrc 
+cp -v $CONFIG_FOLDER/nethack/.nethackrc ~/.nethackrc 
