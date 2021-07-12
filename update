@@ -33,7 +33,7 @@ cp -v ~/.emacs.d/init.el $CONFIG_FOLDER/emacs/init.el
 
 # update xmonad
 cp -v ~/.xmonad/xmonad.hs $CONFIG_FOLDER/xmonad/xmonad.hs
-
+cp -v ~/.xmobarrc $CONFIG_FOLDER/xmonad/.xmobarrc
 
 # update w3m stuff
 #not yet implemented

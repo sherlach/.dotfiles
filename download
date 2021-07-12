@@ -32,6 +32,7 @@ cp -v $CONFIG_FOLDER/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 #xmonad
 cp -v $CONFIG_FOLDER/xmonad/xmonad.hs ~/.xmonad/xmonad.hs 
+cp -v $CONFIG_FOLDER/xmonad/.xmobarrc ~/.xmobarrc
 
 #emacs
 cp -v $CONFIG_FOLDER/emacs/init.el ~/.emacs.d/init.el
