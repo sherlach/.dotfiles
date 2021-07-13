@@ -1,0 +1,35 @@
+Config { font = "xft:dina-*-*-*-*-11-*-*-*-*-*-*-*"
+       , additionalFonts = ["xft:quivira-*-*-*-*-18-*-*-*-*-*-*-*" 
+       ,"xft:sil-galatia-*-*-*-*-18-*-*-*-*-*-*-*"
+       ]
+
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , lowerOnStart = True
+       , commands = [
+        Run Com "fortune" ["-a","-s", "-n 50"] "fortune" 1234
+       , Run BatteryP ["BAT1"] ["-t", "<left>%"
+       , "-L", "15"
+       , "-H", "80"
+       , "-l", "darkred"
+       , "-n", "darkorange"
+       , "-h", "green"
+       ] 100
+       , Run Wireless "wlp0s20f3" ["-L","0","-H","80", "--low", "red", "--high","green"] 10
+       , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+       , Run StdinReader
+       ]
+
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% } %fortune% {%battery%<fc=#666666> <fn=1>|</fn> </fc>%wlp0s20f3wi%<fc=#666666> <fn=1>|</fn> </fc><fc=#149414>%date%</fc>"
+       }
+
+
+
+
+
+         --,Run Weather "YSSY" ["-t","<station>: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
+       --, Run UVMeter "Sydney" ["-H", "3", "-L", "3", "--low", "green", "--high", "red"] 72000
+       --, Run DynNetwork ["-L","0","-H","32","--normal","green","--high","red"] 10

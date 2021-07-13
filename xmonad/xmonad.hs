@@ -14,6 +14,7 @@ import System.Exit
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.SpawnOnce
+import XMonad.Util.Loggers
 --import XMonad.Util.Run
 
 import qualified XMonad.StackSet as W
@@ -55,7 +56,7 @@ myModMask       = mod4Mask
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
 -- myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
-myWorkspaces    = ["home", "code", "web"] ++ map show [4..9]
+myWorkspaces    = ["home", "code", "web", "chat", "v", "vi", "vii", "viii", "ix"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -71,10 +72,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu_run")
+    , ((modm,               xK_p     ), spawn "dmenu_run -sb '#ff0000' -fn hack")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+
+    --launch slock
+    , ((modm .|. shiftMask, xK_l), spawn "slock")
+
+    --take screenshot
+    , ((modm, xK_Print), spawn "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Media/shots/'")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -244,7 +251,12 @@ myEventHook = mempty
 myLogHook = return ()
 
 myBar = "xmobar"
-myPP = xmobarPP
+myPP = xmobarPP { ppCurrent = xmobarColor "#fff200" "" . wrap "[" "]"
+                 , ppVisible = xmobarColor "#202020" ""
+                 , ppTitle = xmobarColor "#149414" "" . shorten 60
+                 , ppSep = "<fc=#666666> <fn=1>|</fn> </fc>"
+                 , ppUrgent = xmobarColor "#c45500" "" . wrap "!" "!"
+                 }
 toggleBarKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 ------------------------------------------------------------------------
@@ -257,7 +269,7 @@ toggleBarKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 -- By default, do nothing.
 myStartupHook = do
   spawnOnce "picom &"
-  spawnOnce "feh --bg-scale /home/loch/Downloads/qwe_download.jpg &"
+  spawnOnce "feh --bg-scale /home/loch/Downloads/solo.jpg &"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
