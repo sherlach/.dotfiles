@@ -17,13 +17,14 @@ Config { font = "xft:dina-*-*-*-*-11-*-*-*-*-*-*-*"
        , "-h", "green"
        ] 100
        , Run Wireless "wlp0s20f3" ["-L","0","-H","80", "--low", "red", "--high","green"] 10
+       , Run Volume "default" "Master" ["-t", "<volume>"] 20 -- make smaller
        , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
        , Run StdinReader
        ]
 
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% } %fortune% {%battery%<fc=#666666> <fn=1>|</fn> </fc>%wlp0s20f3wi%<fc=#666666> <fn=1>|</fn> </fc><fc=#149414>%date%</fc>"
+       , template = "%StdinReader% } %fortune% {%battery%<fc=#666666> <fn=1>|</fn> </fc>%wlp0s20f3wi%<fc=#666666> <fn=1>|</fn> </fc>%default:Master%<fc=#666666> <fn=1>|</fn> </fc><fc=#149414>%date%</fc>"
        }
 
 

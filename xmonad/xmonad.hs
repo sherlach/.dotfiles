@@ -10,12 +10,15 @@
 -- IMPORTS
 import XMonad
 import Data.Monoid
-import System.Exit
+import System.Exit 
+import System.IO (hPutStrLn)
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Loggers
---import XMonad.Util.Run
+import XMonad.Actions.CopyWindow
+--import XMonad.Actions.Volume
+
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -56,7 +59,9 @@ myModMask       = mod4Mask
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
 -- myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
-myWorkspaces    = ["home", "code", "web", "chat", "v", "vi", "vii", "viii", "ix"]
+myWorkspaces    = ["home", "code", "web", "chat", "<fn=1>ᚠ</fn>", "<fn=1>ᚢ</fn>", "<fn=1>ᛏ</fn>", "<fn=1>ᚺ</fn>", "<fn=1>ᚫ</fn>"]
+
+--  dumb hack to turn on rune font in xmobar^
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -74,9 +79,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run -sb '#ff0000' -fn hack")
 
-    -- launch gmrun
-    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
-
     --launch slock
     , ((modm .|. shiftMask, xK_l), spawn "slock")
 
@@ -84,7 +86,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_Print), spawn "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Media/shots/'")
 
     -- close focused window
-    , ((modm .|. shiftMask, xK_c     ), kill)
+    , ((modm .|. shiftMask, xK_c     ), kill1) -- only kill current
+
+    -- close all other copies of focused window
+    , ((modm .|. shiftMask, xK_v ),  killAllOtherCopies)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
@@ -131,6 +136,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
+    -- Volume control using F10 and F11
+    --, ((modm              , xK_F10),    lowerVolume 4)
+    --, ((modm              , xK_F11),    raiseVolume 4)
+
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
     -- See also the statusBar function from Hooks.DynamicLog.
@@ -151,10 +160,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     -- mod-[1..9], Switch to workspace N
     -- mod-shift-[1..9], Move client to workspace N
+    -- mod-ctrl-shift-[1..9], Copy client to workspace N
+    --
+    --old default:
+    --[((m .|. modm, k), windows $ f i)
+    --    | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+    --    , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     --
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+          | (i, k) <- zip (XMonad.workspaces conf) [xK_1 ..]
+          , (f, m) <- [(W.view, 0), (W.shift, shiftMask), (copy, shiftMask .|. controlMask)]]
     ++
 
     --
@@ -248,12 +263,12 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook = return ()
+myLogHook = return()
 
 myBar = "xmobar"
 myPP = xmobarPP { ppCurrent = xmobarColor "#fff200" "" . wrap "[" "]"
                  , ppVisible = xmobarColor "#202020" ""
-                 , ppTitle = xmobarColor "#149414" "" . shorten 60
+                 , ppTitle = xmobarColor "#149414" "" . shorten 45
                  , ppSep = "<fc=#666666> <fn=1>|</fn> </fc>"
                  , ppUrgent = xmobarColor "#c45500" "" . wrap "!" "!"
                  }

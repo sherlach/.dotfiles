@@ -8,11 +8,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " plugins go here
 
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tmux-plugins/vim-tmux-focus-events'
-Plugin 'tmux-plugins/vim-tmux'
+"Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'tmux-plugins/vim-tmux-focus-events'
+"Plugin 'tmux-plugins/vim-tmux'
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/goyo.vim'
+Plugin 'anekos/runes-vim'
+Plugin 'axvr/org.vim' " quick editing of org files
+Plugin 'jremmen/vim-ripgrep'
 call vundle#end()
 filetype plugin indent on
 
