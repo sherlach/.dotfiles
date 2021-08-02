@@ -59,8 +59,7 @@ myModMask       = mod4Mask
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
 -- myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
-myWorkspaces    = ["home", "code", "web", "chat", "<fn=1>ᚠ</fn>", "<fn=1>ᚢ</fn>", "<fn=1>ᛏ</fn>", "<fn=1>ᚺ</fn>", "<fn=1>ᚫ</fn>"]
-
+myWorkspaces    = ["home", "<fn=1>ᚠ</fn>", "code", "<fn=1>ᚢ</fn>", "web", "<fn=1>ᛏ</fn>", "chat", "<fn=1>ᚺ</fn>", "<fn=1>ᚫ</fn>"]
 --  dumb hack to turn on rune font in xmobar^
 
 -- Border colors for unfocused and focused windows, respectively.
@@ -77,7 +76,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu_run -sb '#ff0000' -fn hack")
+    , ((modm,               xK_p     ), spawn "dmenu")
 
     --launch slock
     , ((modm .|. shiftMask, xK_l), spawn "slock")
