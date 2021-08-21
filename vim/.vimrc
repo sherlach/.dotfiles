@@ -31,13 +31,11 @@ set ic
 set expandtab 
 set tabstop=2 shiftwidth=2
 
-" consider let mapleader = " "
 set wildmode=longest,list,full
 
 " LEADER BINDINGS
-
-" set better leaderkey
-let mapleader = " " 
+let mapleader = " " " space is a far nicer leader
+set timeoutlen=750 " shorten that timeout
 
 " goyo command is <leader>g
 " g for goyo
@@ -50,7 +48,17 @@ map <leader>s :setlocal spell! <CR>
 
 " toggle paste setting with <leader>v
 " v because alt-v is terminal paste
-set pastetoggle=<leader>v
+"set pastetoggle=<leader>v
+
+" faster save with <leader>w
+" w for :w
+map <leader>w :w!<CR>
+
+" cursor crosshair highlighting
+" c for crosshair
+:hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 " splits open at bottom and right
 set splitbelow splitright
@@ -69,3 +77,15 @@ inoremap <expr>	)	strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>": ")"
 " replicate thus mappings for square braces
 inoremap	[	[]<Left>
 inoremap <expr>	]	strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+" finally, this very sneaky little function to automatically turn on paste
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
