@@ -16,10 +16,10 @@ cp -v $CONFIG_FOLDER/sh/.profile ~/.profile
 cp -v -r $CONFIG_FOLDER/fish ~/.config/ 
 
 # update tmux stuff
-cp -v $CONFIG_FOLDER/tmux/.tmux.conf ~/.tmux.conf
+#cp -v $CONFIG_FOLDER/tmux/.tmux.conf ~/.tmux.conf
 
 # update vis stuff
-cp -v -r $CONFIG_FOLDER/vis ~/.config/ 
+#cp -v -r $CONFIG_FOLDER/vis ~/.config/ 
 
 # update vim stuff
 cp -v $CONFIG_FOLDER/vim/.vimrc ~/.vimrc
@@ -35,7 +35,7 @@ cp -v $CONFIG_FOLDER/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 cp -v $CONFIG_FOLDER/xmonad/.xmobarrc ~/.xmobarrc
 
 #emacs
-cp -v $CONFIG_FOLDER/emacs/init.el ~/.emacs.d/init.el
+#cp -v $CONFIG_FOLDER/emacs/init.el ~/.emacs.d/init.el
 
 # update w3m stuff
 #not yet implemented
