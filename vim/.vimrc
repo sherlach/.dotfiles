@@ -34,12 +34,23 @@ set tabstop=2 shiftwidth=2
 " consider let mapleader = " "
 set wildmode=longest,list,full
 
-" goyo command
-map <leader>f :Goyo \| set linebreak<CR>
+" LEADER BINDINGS
 
-" spellcheck is <leader>o
-map <leader>o :setlocal spell! <CR> 
+" set better leaderkey
+let mapleader = " " 
+
+" goyo command is <leader>g
+" g for goyo
+map <leader>g :Goyo \| set linebreak<CR>
+
+" spellcheck is <leader>s
+" s for spellcheck
+map <leader>s :setlocal spell! <CR> 
 "spelllang*en<CR>
+
+" toggle paste setting with <leader>v
+" v because alt-v is terminal paste
+set pastetoggle=<leader>v
 
 " splits open at bottom and right
 set splitbelow splitright
