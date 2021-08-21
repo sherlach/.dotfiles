@@ -1,4 +1,5 @@
 #!/bin/sh
+#  USE TO MOVE CURRENT CONFIGS TO STORAGE
 
 # remapping was a one-off static thing, no need to update
 

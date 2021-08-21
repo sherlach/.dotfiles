@@ -17,6 +17,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Loggers
 import XMonad.Actions.CopyWindow
+import XMonad.Actions.GridSelect
 --import XMonad.Actions.Volume
 
 
@@ -67,6 +68,9 @@ myWorkspaces    = ["<fn=1>ᚠ</fn>", "code", "<fn=1>ᚢ</fn>", "web", "<fn=1>ᛏ
 myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#ff0000"
 
+--gsconfig1 = defaultGSConfig { gs_cellheight = 30, gs_cellwidth = 100 }
+gsconfig2 colorizer = (buildDefaultGSConfig colorizer) { gs_cellheight = 30, gs_cellwidth = 100 }
+
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
@@ -76,7 +80,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu")
+    , ((modm,               xK_x     ), spawn "dmenu")
 
     --launch slock
     , ((modm .|. shiftMask, xK_l), spawn "slock")
@@ -95,6 +99,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     --  Reset the layouts on the current workspace to default
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+
+    , ((modm, xK_w), goToSelected def)
+
+    --,((modm, xK_p), spawnSelected $ spawnSelected defaultColorizer)
+    , ((modm, xK_s), spawnSelected defaultGSConfig ["xterm","gmplayer","gvim"])
 
     -- Resize viewed windows to the correct size
     , ((modm,               xK_n     ), refresh)
@@ -161,11 +170,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-[1..9], Move client to workspace N
     -- mod-ctrl-shift-[1..9], Copy client to workspace N
     --
-    --old default:
-    --[((m .|. modm, k), windows $ f i)
-    --    | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-    --    , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-    --
     [((m .|. modm, k), windows $ f i)
           | (i, k) <- zip (XMonad.workspaces conf) [xK_1 ..]
           , (f, m) <- [(W.view, 0), (W.shift, shiftMask), (copy, shiftMask .|. controlMask)]]
@@ -178,6 +182,29 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+
+------ Key bindings for grid navigation
+myNavigation :: TwoD a (Maybe a)
+myNavigation = makeXEventhandler $ shadowWithKeymap navKeyMap navDefaultHandler
+ where navKeyMap = M.fromList [
+          ((0,xK_Escape), cancel)
+         ,((0,xK_Return), select)
+         ,((0,xK_slash) , substringSearch myNavigation)
+         ,((0,xK_Left)  , move (-1,0)  >> myNavigation)
+         ,((0,xK_h)     , move (-1,0)  >> myNavigation)
+         ,((0,xK_Right) , move (1,0)   >> myNavigation)
+         ,((0,xK_l)     , move (1,0)   >> myNavigation)
+         ,((0,xK_Down)  , move (0,1)   >> myNavigation)
+         ,((0,xK_j)     , move (0,1)   >> myNavigation)
+         ,((0,xK_Up)    , move (0,-1)  >> myNavigation)
+         ,((0,xK_y)     , move (-1,-1) >> myNavigation)
+         ,((0,xK_i)     , move (1,-1)  >> myNavigation)
+         ,((0,xK_n)     , move (-1,1)  >> myNavigation)
+         ,((0,xK_m)     , move (1,-1)  >> myNavigation)
+         ,((0,xK_space) , setPos (0,0) >> myNavigation)
+         ]
+       -- The navigation handler ignores unknown key symbols
+       navDefaultHandler = const myNavigation
 
 
 ------------------------------------------------------------------------

@@ -26,6 +26,7 @@ set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
 #set -g __fish_git_prompt_color_cleanstate green bold
 set -g __fish_git_prompt_color_cleanstate green
 
+set -pgx PATH "$HOME/.cargo/bin"
 set -agx PATH "$HOME/go/bin"
 
 fish_vi_key_bindings

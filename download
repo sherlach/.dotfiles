@@ -1,4 +1,5 @@
 #!/bin/sh
+# USE TO MOVE STORED CONFIGS GO TO SYSTEM
 
 # remapping of console is gentoo specific and should be done manually 
 
