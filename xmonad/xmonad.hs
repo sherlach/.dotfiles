@@ -1,11 +1,14 @@
 --
--- xmonad example config file.
+-- my xmonad config file.
 --
--- A template showing all available configuration hooks,
--- and how to override the defaults in your own xmonad.hs conf file.
 --
--- Normally, you'd only override those defaults you care about.
+-- TODO:
 --
+-- write a command that launches a different 
+-- "default command" depending on the given workspace
+-- name(/index?)
+--
+-- write volume up down and toggle functions for f9,10,11
 
 -- IMPORTS
 import XMonad
@@ -68,9 +71,23 @@ myWorkspaces    = ["<fn=1>ᚠ</fn>", "code", "<fn=1>ᚢ</fn>", "web", "<fn=1>ᛏ
 myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#ff0000"
 
---gsconfig1 = defaultGSConfig { gs_cellheight = 30, gs_cellwidth = 100 }
-gsconfig2 colorizer = (buildDefaultGSConfig colorizer) { gs_cellheight = 30, gs_cellwidth = 100 }
 
+-- Configs for grid selection
+gsconfig1 colorizer = (buildDefaultGSConfig colorizer) { gs_cellheight = 60
+, gs_cellwidth = 180
+, gs_font = "8x13"
+, gs_navigate = myNavigation
+, gs_bordercolor = "black"}
+
+-- | A green monochrome colorizer based on window class
+greenColorizer = colorRangeFromClassName
+                     black            -- lowest inactive bg
+                     (0xFF,0x00,0x00) -- highest inactive bg
+                     black            -- active bg
+                     white            -- inactive fg
+                     white            -- active fg
+  where black = minBound
+        white = maxBound
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
@@ -100,10 +117,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --  Reset the layouts on the current workspace to default
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
 
-    , ((modm, xK_w), goToSelected def)
+    -- Switch to an open window using grid selector
+    , ((modm, xK_s), goToSelected $ gsconfig1 greenColorizer)
 
-    --,((modm, xK_p), spawnSelected $ spawnSelected defaultColorizer)
-    , ((modm, xK_s), spawnSelected defaultGSConfig ["xterm","gmplayer","gvim"])
+    --, ((modm, xK_p), spawnSelected defaultGSConfig ["xterm","gmplayer","gvim"])
 
     -- Resize viewed windows to the correct size
     , ((modm,               xK_n     ), refresh)
@@ -148,12 +165,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --, ((modm              , xK_F10),    lowerVolume 4)
     --, ((modm              , xK_F11),    raiseVolume 4)
 
-    -- Toggle the status bar gap
-    -- Use this binding with avoidStruts from Hooks.ManageDocks.
-    -- See also the statusBar function from Hooks.DynamicLog.
-    --
-    -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
-
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
@@ -197,10 +208,11 @@ myNavigation = makeXEventhandler $ shadowWithKeymap navKeyMap navDefaultHandler
          ,((0,xK_Down)  , move (0,1)   >> myNavigation)
          ,((0,xK_j)     , move (0,1)   >> myNavigation)
          ,((0,xK_Up)    , move (0,-1)  >> myNavigation)
+         ,((0,xK_k)    , move (0,-1)  >> myNavigation)
          ,((0,xK_y)     , move (-1,-1) >> myNavigation)
-         ,((0,xK_i)     , move (1,-1)  >> myNavigation)
-         ,((0,xK_n)     , move (-1,1)  >> myNavigation)
-         ,((0,xK_m)     , move (1,-1)  >> myNavigation)
+         ,((0,xK_u)     , move (1,-1)  >> myNavigation)
+         ,((0,xK_b)     , move (-1,1)  >> myNavigation)
+         ,((0,xK_n)     , move (1,1)  >> myNavigation)
          ,((0,xK_space) , setPos (0,0) >> myNavigation)
          ]
        -- The navigation handler ignores unknown key symbols
