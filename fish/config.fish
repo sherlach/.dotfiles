@@ -32,6 +32,6 @@ set -agx PATH "$HOME/go/bin"
 
 fish_vi_key_bindings
 
-
+alias firefox firefox-bin
 
 thefuck --alias | source
