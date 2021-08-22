@@ -17,7 +17,7 @@ Config { font = "xft:dina-*-*-*-*-11-*-*-*-*-*-*-*"
        , "-h", "green"
        ] 100
        , Run Wireless "wlp0s20f3" ["-L","0","-H","80", "--low", "red", "--high","green"] 10
-       , Run Volume "default" "Master" ["-t", "<volume>"] 20 -- make smaller
+       , Run Volume "default" "Master" ["-t", "<volume>"] 5
        , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
        , Run StdinReader
        ]

@@ -13,8 +13,6 @@
 -- fix the help command once all other commands are stable
 --
 -- potentially use rofi instead of gridselect
---
--- EWMH
 
 -- IMPORTS
 import XMonad
@@ -28,8 +26,6 @@ import XMonad.Util.SpawnOnce
 import XMonad.Util.Loggers
 import XMonad.Actions.CopyWindow
 import XMonad.Actions.GridSelect
---import XMonad.Actions.Volume
-
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -171,9 +167,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
-    -- Volume control using F10 and F11
-    --, ((modm              , xK_F10),    lowerVolume 4)
-    --, ((modm              , xK_F11),    raiseVolume 4)
+    -- Volume control using F9, F10 and F11
+    , ((modm              , xK_F9),     spawn "amixer -c 0 set Master 0%")
+    , ((modm              , xK_F10),    spawn "amixer -c 0 set Master 10%-")
+    , ((modm              , xK_F11),    spawn "amixer -c 0 set Master 10%+")
 
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
