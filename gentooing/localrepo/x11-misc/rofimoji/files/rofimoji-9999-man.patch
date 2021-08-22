@@ -1,0 +1,14 @@
+diff --git a/setup.cfg b/setup.cfg
+index 978140f..5fa48a7 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -27,9 +27,6 @@ install_requires =
+ [options.package_data]
+ picker = data/*.csv
+ 
+-[options.data_files]
+-/share/man/man1 = src/picker/docs/rofimoji.1
+-
+ [options.entry_points]
+ console_scripts =
+     rofimoji = picker.rofimoji:main
