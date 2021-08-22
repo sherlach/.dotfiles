@@ -23,6 +23,7 @@ import System.Exit
 import System.IO (hPutStrLn)
 
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Loggers
 import XMonad.Actions.CopyWindow
@@ -338,7 +339,7 @@ myStartupHook = do
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad =<< statusBar myBar myPP toggleBarKey defaults
+main = xmonad . ewmh =<< statusBar myBar myPP toggleBarKey defaults
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
