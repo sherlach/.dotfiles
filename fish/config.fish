@@ -1,5 +1,6 @@
-set -U EDITOR vim
-set -U --erase fish_greeting
+set -g EDITOR vim
+set -g MANPAGER "/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+#set -U --erase fish_greeting
 
 set -g __fish_git_prompt_show_informative_status 1
 set -g __fish_git_prompt_hide_untrackedfiles 1

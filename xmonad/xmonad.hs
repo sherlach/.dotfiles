@@ -9,6 +9,12 @@
 -- name(/index?)
 --
 -- write volume up down and toggle functions for f9,10,11
+--
+-- fix the help command once all other commands are stable
+--
+-- potentially use rofi instead of gridselect
+--
+-- EWMH
 
 -- IMPORTS
 import XMonad
@@ -98,6 +104,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch dmenu
     , ((modm,               xK_x     ), spawn "dmenu")
+
+    -- launch emoji selector
+    , ((modm,               xK_p     ), spawn "rofimoji --selector-args=\"-theme android_notification\"")
 
     --launch slock
     , ((modm .|. shiftMask, xK_l), spawn "slock")
