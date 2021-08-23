@@ -36,6 +36,11 @@ set tabstop=2 shiftwidth=2
 
 set wildmode=longest,list,full
 
+" BINDINGS
+" make Y effect to end of line instead of whole line
+
+map Y y$
+
 " LEADER BINDINGS
 let mapleader = " " " space is a far nicer leader
 set timeoutlen=750 " shorten that timeout
@@ -46,11 +51,15 @@ map <leader>g :Goyo \| set linebreak<CR>
 
 " spellcheck is <leader>s
 " s for spellcheck
-map <leader>s :setlocal spell! <CR> 
+map <leader>s :setlocal spell!<CR> 
 
 " faster save with <leader>w
 " w for :w
 map <leader>w :w!<CR>
+
+" yank to system keyboard with <leader>y
+" y for yank
+map <leader>y "+y<CR>
 
 " cursor crosshair highlighting with <leader>c
 " c for crosshair
@@ -61,11 +70,6 @@ nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 " quickly find terms across files with <leader>f for find
 let g:rg_highlight = 1
 map <leader>f :Rg<CR>
-
-" toggle paste setting with <leader>v
-" v because alt-v is terminal paste
-"set pastetoggle=<leader>v
-
 
 
 " splits open at bottom and right
