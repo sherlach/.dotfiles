@@ -1,5 +1,5 @@
 set -g EDITOR vim
-set -g MANPAGER "/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+set -g MANPAGER "/bin/sh -c \"col -b | vim -c 'Goyo | set ft=man ts=8 nomod nolist nonu noma linebreak' -\""
 set -U fish_greeting "🐟"
 
 set -g __fish_git_prompt_show_informative_status 1
