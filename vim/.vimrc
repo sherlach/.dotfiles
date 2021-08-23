@@ -39,7 +39,7 @@ set wildmode=longest,list,full
 " BINDINGS
 " make Y effect to end of line instead of whole line
 
-map Y y$
+nmap Y y$
 
 " LEADER BINDINGS
 let mapleader = " " " space is a far nicer leader
@@ -61,15 +61,20 @@ map <leader>w :w!<CR>
 " y for yank
 map <leader>y "+y<CR>
 
+" <leader>/ clears last search
+" / is similar to the search command
+map <leader>/ :let @/ = ""<CR>
+
+" quickly find terms across files with <leader>f for find
+let g:rg_highlight = 1
+map <leader>f :Rg<CR>
+
 " cursor crosshair highlighting with <leader>c
 " c for crosshair
 :hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 :hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
-" quickly find terms across files with <leader>f for find
-let g:rg_highlight = 1
-map <leader>f :Rg<CR>
 
 
 " splits open at bottom and right
