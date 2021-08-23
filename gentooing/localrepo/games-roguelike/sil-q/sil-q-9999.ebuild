@@ -90,7 +90,7 @@ src_install() {
 	doexe sil
 	make_wrapper sil $INST_LOC/sil
 
-	dodoc README.md "Sil 1.3 Manual.pdf" "Sil-Q 1.4.2 Manual.pdf"
+	dodoc README.md "Sil-Q v1.5.0-beta2.pdf"
 	dodoc silg silx
 }
 
