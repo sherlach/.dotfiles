@@ -8,11 +8,9 @@
 -- "default command" depending on the given workspace
 -- name(/index?)
 --
--- write volume up down and toggle functions for f9,10,11
+-- potentially use rofi instead of gridselect
 --
 -- fix the help command once all other commands are stable
---
--- potentially use rofi instead of gridselect
 
 -- IMPORTS
 import XMonad
