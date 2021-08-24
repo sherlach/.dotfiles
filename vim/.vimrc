@@ -38,8 +38,23 @@ set wildmode=longest,list,full
 
 " BINDINGS
 " make Y effect to end of line instead of whole line
-
 nmap Y y$
+
+" use TAB to complete when typing words, else inserts TABs as usual.
+" uses dictionary and source files to find matching words to complete.
+
+"See help completion for source,
+"Note: usual completion is on <C-n> but more trouble to press all the time.
+"Never type the same word twice 
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+":set dictionary="/usr/dict/words"
 
 " LEADER BINDINGS
 let mapleader = " " " space is a far nicer leader
@@ -69,13 +84,15 @@ map <leader>/ :let @/ = ""<CR>
 let g:rg_highlight = 1
 map <leader>f :Rg<CR>
 
+"testing
+"map <leader>3 :s/^\(\s*\)/# \1/<CR>:nohl<CR>"
+"map <leader># :s/^\(\s*\)# /\1/<CR>:nohl<CR>"
+
 " cursor crosshair highlighting with <leader>c
 " c for crosshair
 :hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 :hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
-
-
 
 " splits open at bottom and right
 set splitbelow splitright
