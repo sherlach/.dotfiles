@@ -18,7 +18,7 @@ cp -v ~/.config/fish/* $CONFIG_FOLDER/fish
 #cp -v ~/.tmux.conf $CONFIG_FOLDER/tmux #tmux.batt is also static
 
 # update vis stuff
-#cp -v ~/.config/vis/* $CONFIG_FOLDER/vis
+cp -v ~/.config/vis/* $CONFIG_FOLDER/vis
 
 # update vim stuff
 cp -v ~/.vimrc $CONFIG_FOLDER/vim

@@ -20,7 +20,7 @@ cp -v -r $CONFIG_FOLDER/fish ~/.config/
 #cp -v $CONFIG_FOLDER/tmux/.tmux.conf ~/.tmux.conf
 
 # update vis stuff
-#cp -v -r $CONFIG_FOLDER/vis ~/.config/ 
+cp -v -r $CONFIG_FOLDER/vis ~/.config/ 
 
 # update vim stuff
 cp -v $CONFIG_FOLDER/vim/.vimrc ~/.vimrc

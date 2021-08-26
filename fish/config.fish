@@ -1,6 +1,7 @@
 set -g EDITOR vim
 set -g MANPAGER "/bin/sh -c \"col -b | vim -c 'Goyo | set ft=man ts=8 nomod nolist nonu noma linebreak' -\""
-set -U fish_greeting "🐟"
+#set -U fish_greeting "🐟"
+set -U fish_greeting ""
 
 set -g __fish_git_prompt_show_informative_status 1
 set -g __fish_git_prompt_hide_untrackedfiles 1
@@ -33,5 +34,6 @@ set -agx PATH "$HOME/go/bin"
 fish_vi_key_bindings
 
 alias firefox firefox-bin
+alias cat bat
 
 thefuck --alias | source
