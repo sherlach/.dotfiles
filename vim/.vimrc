@@ -20,12 +20,18 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'anekos/runes-vim'
 Plugin 'axvr/org.vim' " quick editing of org files
 Plugin 'jremmen/vim-ripgrep'
+Plugin 'kovisoft/slimv'
+Plugin 'kevna/fish-syntax'
 call vundle#end()
 filetype plugin indent on
 
 " :PluginList	:PluginInstall	:PluginSearch foo	:PluginClean	:h
 " END VUNDLE SECTION
 
+" TESTING slimv
+
+let g:slimv_swank_cmd = '! alacritty -e sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp &'
+let g:lisp_rainbow=1
 
 " some settings I like
 set number relativenumber

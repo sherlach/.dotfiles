@@ -2,6 +2,8 @@
 # VERSION: 3.0
 SETUVAR EDITOR:vim
 SETUVAR MANPAGER:/bin/sh\x20\x2dc\x20\x22col\x20\x2db\x20\x7c\x20vim\x20\x2dc\x20\x27set\x20ft\x3dman\x20ts\x3d8\x20nomod\x20nolist\x20nonu\x20noma\x27\x20\x2d\x22
+SETUVAR SBCL_HOME:/usr/lib64/sbcl
+SETUVAR SBCL_SOURCE_ROOT:/usr/lib64/sbcl/src
 SETUVAR __fish_initialized:3100
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr

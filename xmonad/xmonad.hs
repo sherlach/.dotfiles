@@ -33,7 +33,6 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
---myTerminal      = "alacritty"
 myTerminal      = "st"
 
 -- Whether focus follows the mouse pointer.
@@ -103,12 +102,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch emoji selector
     , ((modm,               xK_p     ), spawn "rofimoji --selector-args=\"-theme android_notification\"")
+    , ((modm .|. shiftMask,               xK_p     ), spawn "rofimoji -f all --selector-args=\"-theme android_notification\"")
 
     --launch slock
     , ((modm .|. shiftMask, xK_l), spawn "slock")
 
     --take screenshot
-    , ((modm, xK_Print), spawn "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Media/shots/'")
+    , ((modm, xK_Print), spawn "scrot '%Y-%m-%d_%s.png' -e 'mv $f ~/Media/shots/'")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill1) -- only kill current

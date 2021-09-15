@@ -1,5 +1,8 @@
 set -g EDITOR vim
 set -g MANPAGER "/bin/sh -c \"col -b | vim -c 'Goyo | set ft=man ts=8 nomod nolist nonu noma linebreak' -\""
+#set -gx SBCL_HOME /usr/lib64/sbcl
+#set -gx SBCL_SOURCE_ROOT /usr/lib64/sbcl/src
+
 #set -U fish_greeting "🐟"
 set -U fish_greeting ""
 
