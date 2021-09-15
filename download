@@ -7,36 +7,36 @@ CONFIG_FOLDER=~/configs
 
 # sh stuff
 
-cp -v $CONFIG_FOLDER/sh/.profile ~/.profile
+cp -vi $coNFIG_FOLDER/sh/.profile ~/.profile
 
 # update bash stuff
-#cp -v ~/customisations/bash/.bash_profile ~/.bash_profile
-#cp -v ~/customisations/bash/.bashrc ~/.bashrc
+#cp -vi ~/customisations/bash/.bash_profile ~/.bash_profile
+#cp -vi ~/customisations/bash/.bashrc ~/.bashrc
 
 # update fish stuff
-cp -v -r $CONFIG_FOLDER/fish ~/.config/ 
+cp -vi -r $CONFIG_FOLDER/fish ~/.config/ 
 
 # update tmux stuff
-#cp -v $CONFIG_FOLDER/tmux/.tmux.conf ~/.tmux.conf
+#cp -vi $config_fOLDER/tmux/.tmux.conf ~/.tmux.conf
 
 # update vis stuff
-cp -v -r $CONFIG_FOLDER/vis ~/.config/ 
+cp -vi -r $CONFIG_FOLDER/vis ~/.config/ 
 
 # update vim stuff
-cp -v $CONFIG_FOLDER/vim/.vimrc ~/.vimrc
+cp -vi $CONFIG_FOLDER/vim/.vimrc ~/.vimrc
 
 # update nvim stuff
-#cp -v -r ~/customisations/nvim ~/.config/
+#cp -vi -r ~/customisations/nvim ~/.config/
 
 # update alacritty stuff
-cp -v $CONFIG_FOLDER/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 
+cp -vi $config_folder/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml 
 
 #xmonad
-cp -v $CONFIG_FOLDER/xmonad/xmonad.hs ~/.xmonad/xmonad.hs 
-cp -v $CONFIG_FOLDER/xmonad/.xmobarrc ~/.xmobarrc
+cp -vi $config_folder/xmonad/xmonad.hs ~/.xmonad/xmonad.hs 
+cp -vi $config_fOLDER/xmonad/.xmobarrc ~/.xmobarrc
 
 #emacs
-#cp -v $CONFIG_FOLDER/emacs/init.el ~/.emacs.d/init.el
+#cp -vi $config_foldeR/emacs/init.el ~/.emacs.d/init.el
 
 # update w3m stuff
 #not yet implemented
@@ -44,8 +44,8 @@ cp -v $CONFIG_FOLDER/xmonad/.xmobarrc ~/.xmobarrc
 #not yet implemented
 
 # update amfora stuff
-cp -v $CONFIG_FOLDER/amfora/config.toml ~/.config/amfora
-cp -v $CONFIG_FOLDER/amfora/newtab.gmi ~/.config/amfora
+cp -vi $config_folder/amfora/config.toml ~/.config/amfora
+cp -vi $config_folder/amfora/newtab.gmi ~/.config/amfora
 
 # update the configs for the most important software on my system. Nethack.
-cp -v $CONFIG_FOLDER/nethack/.nethackrc ~/.nethackrc 
+cp -vi $config_foldeR/nethack/.nethackrc ~/.nethackrc 
