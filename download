@@ -36,7 +36,7 @@ cp -vi $CONFIG_FOLDER/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 cp -vi $CONFIG_FOLDER/xmonad/.xmobarrc ~/.xmobarrc
 
 # awesome
-cp -vi $CONFIG_FOLDER/awesome/rc.lua ~/.config/awesome/rc.lua
+cp -vir $CONFIG_FOLDER/awesome ~/.config/
 
 #emacs
 #cp -vi $CONFIG_FOLDER/emacs/init.el ~/.emacs.d/init.el

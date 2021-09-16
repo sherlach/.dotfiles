@@ -19,18 +19,7 @@
 require('vis')
 
 vis.events.subscribe(vis.events.INIT, function()
-  -- plugin manager
-  local plug = require('plugins/vis-plug')
-
-  plug.set_path('~/.config/vis')
-
-  -- configure plugins in an array of tables
-  local plugins = {
-  --{ url = 'kiwec/vis-citron', theme = true },
-  { url = 'erf/vis-cursors' },
-  }
-  -- require and optionally install plugins on init
-  plug.init(plugins, true)
+  require('plugins/vis-cursors')
 
   -- emulate my vim leaderkey functions
   -- quick write
@@ -52,7 +41,7 @@ end)
   
 
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
-  vis:command('set theme kin')
+  vis:command('set theme base16-night')
 
   -- Nice Line Numbering (TM)
   vis:command('set number')
