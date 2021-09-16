@@ -37,7 +37,7 @@ vis.events.subscribe(vis.events.INIT, function()
   vis:command('map! normal " w" ":w<Enter>"')
 
   -- yank to system clipboard
-  vis:command('map! visual <Space>y "+y')
+  vis:command('map! visual <Space>y \"+y')
 
   vis:command('map! normal " <Enter>" ":set show-newlines!<Enter>"')
   vis:command('map! normal "  " ":set show-space!<Enter>"')
@@ -52,7 +52,7 @@ end)
   
 
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
-  vis:command('set theme base16-basic')
+  vis:command('set theme kin')
 
   -- Nice Line Numbering (TM)
   vis:command('set number')
