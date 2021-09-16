@@ -15,10 +15,6 @@
 
 -- how does info bar even work
 
--- make own colourscheme
-
-
-
 -- load standard vis module, providing parts of the Lua API
 require('vis')
 
@@ -30,7 +26,7 @@ vis.events.subscribe(vis.events.INIT, function()
 
   -- configure plugins in an array of tables
   local plugins = {
-  { url = 'kiwec/vis-citron', theme = true },
+  --{ url = 'kiwec/vis-citron', theme = true },
   { url = 'erf/vis-cursors' },
   }
   -- require and optionally install plugins on init
@@ -56,7 +52,7 @@ end)
   
 
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
-  vis:command('set theme dark-16')
+  vis:command('set theme base16-basic')
 
   -- Nice Line Numbering (TM)
   vis:command('set number')

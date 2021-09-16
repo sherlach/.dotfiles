@@ -19,6 +19,7 @@ cp -v ~/.config/fish/* $CONFIG_FOLDER/fish
 
 # update vis stuff
 cp -v ~/.config/vis/* $CONFIG_FOLDER/vis
+cp -v ~/.config/vis/themes/* $CONFIG_FOLDER/vis/themes/
 
 # update vim stuff
 cp -v ~/.vimrc $CONFIG_FOLDER/vim
