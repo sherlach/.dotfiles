@@ -90,17 +90,17 @@ modkey = "Mod4"
 awful.layout.layouts = {
   awful.layout.suit.tile,
   awful.layout.suit.floating,
-  awful.layout.suit.tile.left,
-  awful.layout.suit.tile.bottom,
-  awful.layout.suit.tile.top,
-  awful.layout.suit.fair,
-  awful.layout.suit.fair.horizontal,
+  --awful.layout.suit.tile.left,
+  --awful.layout.suit.tile.bottom,
+  --awful.layout.suit.tile.top,
+  --awful.layout.suit.fair,
+  --awful.layout.suit.fair.horizontal,
   awful.layout.suit.spiral,
-  awful.layout.suit.spiral.dwindle,
+  --awful.layout.suit.spiral.dwindle,
   awful.layout.suit.max,
   awful.layout.suit.max.fullscreen,
-  awful.layout.suit.magnifier,
-  awful.layout.suit.corner.nw,
+  --awful.layout.suit.magnifier,
+  --awful.layout.suit.corner.nw,
   -- awful.layout.suit.corner.ne,
   -- awful.layout.suit.corner.sw,
   -- awful.layout.suit.corner.se,
@@ -215,7 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
     local names = { "main", "code", "www", "chat", "game", "obs", "7", "8", "9" }
     local l = awful.layout.suit  -- Just to save some typing: use an alias.
-    local layouts = { l.tile, l.tile, l.floating, l.tile, l.max.fullscreen,
+    local layouts = { l.tile, l.tile, l.max, l.tile, l.max.fullscreen,
         l.tile, l.tile, l.tile, l.tile }
         awful.tag(names, s, layouts)
 
@@ -550,7 +550,7 @@ awful.rules.rules = {
     --},
 
     -- Set web browsers to always map on the tag named "www" on screen 1.
-     { rule_any = { class = { "Firefox" , "qutebrowser" } },
+     { rule_any = { class = { "Firefox" , "qutebrowser", "luakit", "dillo" } },
        properties = { screen = 1, tag = "www" } },
      
      { rule_any = { class = { "telegram-desktop" , "Telegram", "discord" } },

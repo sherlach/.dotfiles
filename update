@@ -6,7 +6,7 @@
 CONFIG_FOLDER=~/configs
 
 # update sh stuff
-cp -v ~/.profile $CONFIG_FOLDER/sh
+#cp -v ~/.profile $CONFIG_FOLDER/sh
 
 # update bash stuff
 #cp -v ~/.bash_profile ~/.bashrc $CONFIG_FOLDER/bash
@@ -39,6 +39,9 @@ cp -v ~/.xmobarrc $CONFIG_FOLDER/xmonad/.xmobarrc
 
 # update awesomewm
 cp -rv ~/.config/awesome $CONFIG_FOLDER
+
+# update luakit 
+cp -rv ~/.config/luakit $CONFIG_FOLDER
 
 # update w3m stuff
 #not yet implemented

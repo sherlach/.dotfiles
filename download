@@ -6,8 +6,7 @@
 CONFIG_FOLDER=~/configs
 
 # sh stuff
-
-cp -vi $CONFIG_FOLDER/sh/.profile ~/.profile
+#cp -vi $CONFIG_FOLDER/sh/.profile ~/.profile
 
 # update bash stuff
 #cp -vi ~/customisations/bash/.bash_profile ~/.bash_profile
@@ -37,6 +36,9 @@ cp -vi $CONFIG_FOLDER/xmonad/.xmobarrc ~/.xmobarrc
 
 # awesome
 cp -vir $CONFIG_FOLDER/awesome ~/.config/
+
+# luakit
+cp -vir $CONFIG_FOLDER/luakit ~/.config/
 
 #emacs
 #cp -vi $CONFIG_FOLDER/emacs/init.el ~/.emacs.d/init.el
