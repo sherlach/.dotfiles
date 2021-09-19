@@ -1,3 +1,6 @@
+-- todo: change title of opened window
+-- to differentiate from tag
+
 ---------------------------
 -- Default awesome theme --
 ---------------------------

@@ -1,3 +1,6 @@
+-- TODO: MAKE WAY MORE MINIMAL
+
+
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -6,7 +9,6 @@ pcall(require, "luarocks.loader")
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
--- Client rules
 --local ruled = require("ruled")
 -- Widget and layout library
 local wibox = require("wibox")
@@ -14,7 +16,6 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
-local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -25,7 +26,7 @@ require("awful.hotkeys_popup.keys")
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
   naughty.notify({ preset = naughty.config.presets.critical,
-                   title = "Oops, there were errors during startup!",
+                   title = "Invalid Config, You Silly Pig",
                    text = awesome.startup_errors })
 end
 
@@ -38,7 +39,7 @@ do
     in_error = true
 
     naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, an error happened!",
+                     title = "Runtime Error!",
                      text = tostring(err) })
     in_error = false
   end)
@@ -51,8 +52,30 @@ end
 beautiful.init("~/.config/awesome/theme.lua")
 
 
--- This is used later as the default terminal and editor to run.
+-- apps and defaults for later keybindings
 terminal = "st"
+
+-- TODO: make these functions less hectic
+lockscreen = function() awful.util.spawn("slock") end
+
+launcher = function() awful.util.spawn("dmenu") end
+winswitch = function()
+  awful.util.spawn("rofi -show window -show-icons -sorting-method fzf -theme android_notification")
+end
+rofimoji = function() 
+  awful.util.spawn("rofimoji --selector-args=\"-theme android_notification\"")
+end
+
+screenshot_full = function() 
+    awful.util.spawn("scrot '%Y-%m-%d_%s.png' -e 'mv $f ~/Media/shots/'") 
+    naughty.notify({title = "fullscreen screenshot", timeout = 2})                
+end
+
+screenshot_focus = function() 
+    awful.util.spawn("scrot -u '%Y-%m-%d_%s_$wx$h.png' -e 'mv $f ~/Media/shots/'")
+    --naughty.notify({title = "screenshot of"..awful.client.focus., timeout = 2})                
+end
+
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -84,28 +107,6 @@ awful.layout.layouts = {
 }
 -- }}}
 
--- {{{ Menu
--- Create a launcher widget and a main menu
---myawesomemenu = {
---   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
---   { "manual", terminal .. " -e man awesome" },
---   { "edit config", editor_cmd .. " " .. awesome.conffile },
---   { "restart", awesome.restart },
-   --{ "quit", function() awesome.quit() end },
---}
---
---mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
---                                    { "open terminal", terminal }
---                                  }
-                       -- })
-
---mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
---                                     menu = mymainmenu })
-
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
-
 -- {{{ Wibar
 -- Create a textclock widget
 local mytextclock = wibox.widget {
@@ -113,6 +114,44 @@ local mytextclock = wibox.widget {
   widget = wibox.widget.textclock,
   refresh = 1
 }
+
+-- battery infos from freedesktop upower
+local batno = "1"
+local mybattery = awful.widget.watch(
+    { awful.util.shell, "-c", "upower -i /org/freedesktop/UPower/devices/battery_BAT"..batno.." | sed -n '/present/,/icon-name/p'" },
+    30,
+    function(widget, stdout)
+        local bat_now = {
+            present      = "N/A",
+            state        = "N/A",
+            warninglevel = "N/A",
+            energy       = "N/A",
+            energyfull   = "N/A",
+            energyrate   = "N/A",
+            voltage      = "N/A",
+            percentage   = "N/A",
+            capacity     = "N/A",
+            icon         = "N/A"
+        }
+
+        for k, v in string.gmatch(stdout, '([%a]+[%a|-]+):%s*([%a|%d]+[,|%a|%d]-)') do
+            if     k == "present"       then bat_now.present      = v
+            elseif k == "state"         then bat_now.state        = v
+            elseif k == "warning-level" then bat_now.warninglevel = v
+            elseif k == "energy"        then bat_now.energy       = string.gsub(v, ",", ".") -- Wh
+            elseif k == "energy-full"   then bat_now.energyfull   = string.gsub(v, ",", ".") -- Wh
+            elseif k == "energy-rate"   then bat_now.energyrate   = string.gsub(v, ",", ".") -- W
+            elseif k == "voltage"       then bat_now.voltage      = string.gsub(v, ",", ".") -- V
+            elseif k == "percentage"    then bat_now.percentage   = tonumber(v)              -- %
+            elseif k == "capacity"      then bat_now.capacity     = string.gsub(v, ",", ".") -- %
+            elseif k == "icon-name"     then bat_now.icon         = v
+            end
+        end
+
+        -- customize here
+        widget:set_text(bat_now.percentage .. "% " .. bat_now.state.." ")
+    end
+)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -174,9 +213,9 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    local names = { "main", "code", "www", "chat", "game", "6", "7", "8", "9" }
+    local names = { "main", "code", "www", "chat", "game", "obs", "7", "8", "9" }
     local l = awful.layout.suit  -- Just to save some typing: use an alias.
-    local layouts = { l.tile, l.tile, l.floating, l.fair, l.max.fullscreen,
+    local layouts = { l.tile, l.tile, l.floating, l.tile, l.max.fullscreen,
         l.tile, l.tile, l.tile, l.tile }
         awful.tag(names, s, layouts)
 
@@ -220,6 +259,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            mybattery,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -246,6 +286,12 @@ globalkeys = gears.table.join(
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
+
+    awful.key({ modkey, "Shift"   }, "l", lockscreen, {description = "lock screen", group = "awesome-utils"}),
+
+    awful.key({ modkey, }, "Print", screenshot_full, {description = "takes a screenshot of full screen", group = "awesome-utils"}),
+
+    awful.key({ modkey, "Shift"   }, "Print", screenshot_focus, {description = "takes a screenshot of current active window", group = "awesome-utils"}),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -292,9 +338,9 @@ globalkeys = gears.table.join(
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
+    awful.key({ modkey, "Shift"   }, ".",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
+    awful.key({ modkey, "Shift"   }, ",",     function () awful.tag.incnmaster(-1, nil, true) end,
               {description = "decrease the number of master clients", group = "layout"}),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
               {description = "increase the number of columns", group = "layout"}),
@@ -318,7 +364,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey },            "r",     launcher,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -331,9 +377,12 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
-    -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+
+    awful.key({ modkey }, "w", winswitch,
+              {description = "select application on currently opened windows", group = "awesome-utils"}),
+    
+    awful.key({ modkey }, "p", rofimoji,
+              {description = "launch rofimoji selector", group = "awesome-utils"})
 )
 
 clientkeys = gears.table.join(
@@ -500,9 +549,18 @@ awful.rules.rules = {
     --  }, properties = { titlebars_enabled = true }
     --},
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-     { rule = { class = "Firefox" },
+    -- Set web browsers to always map on the tag named "www" on screen 1.
+     { rule_any = { class = { "Firefox" , "qutebrowser" } },
        properties = { screen = 1, tag = "www" } },
+     
+     { rule_any = { class = { "telegram-desktop" , "Telegram", "discord" } },
+       properties = { screen = 1, tag = "chat" } },
+     
+     { rule_any = { class = { "steam" , "Steam" } },
+       properties = { screen = 1, tag = "game" } },
+     
+     { rule = { class =  "obs" },
+       properties = { screen = 1, tag = "obs" } },
 }
 -- }}}
 

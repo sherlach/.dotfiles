@@ -54,6 +54,7 @@ nmap Y y$
 "Never type the same word twice 
 function! Tab_Or_Complete()
   if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    " not first column and there's a ^\w (letter) behind cursor?
     return "\<C-N>"
   else
     return "\<Tab>"

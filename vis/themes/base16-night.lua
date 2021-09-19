@@ -44,7 +44,7 @@ lexers.STYLE_IDENTIFIER = fg
 
 lexers.STYLE_LINENUMBER = 'fore:'..colors.base00..',back:'..colors.base02
 lexers.STYLE_LINENUMBER_CURSOR = 'back:'..colors.base00..',fore:'..colors.base02
-lexers.STYLE_CURSOR = 'fore:'..colors.base01..',back:'..colors.base01
+lexers.STYLE_CURSOR = 'fore:'..colors.base01..',back:white'
 lexers.STYLE_CURSOR_PRIMARY = lexers.STYLE_CURSOR..',back:base03'
 lexers.STYLE_CURSOR_LINE = 'back:'..colors.base02
 lexers.STYLE_COLOR_COLUMN = 'back:'..colors.base02
