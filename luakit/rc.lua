@@ -72,6 +72,8 @@ local binds = require "binds"
 local settings = require "settings"
 require "settings_chrome"
 
+settings.window.default_search_engine = "duckduckgo"
+
 ----------------------------------
 -- Optional user script loading --
 ----------------------------------

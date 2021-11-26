@@ -48,15 +48,31 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
---beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.init("~/.config/awesome/theme.lua")
 
+wallpapers = {"solo.jpg", "angie.png"}
+
+chosen_wallpaper = 1
+
+beautiful.wallpaper = function(s)
+  gears.wallpaper.maximized(wallpapers[chosen_wallpaper], s, true)
+end
 
 -- apps and defaults for later keybindings
 terminal = "st"
 
 -- TODO: make these functions less hectic
 lockscreen = function() awful.util.spawn("slock") end
+
+wpp = function()
+  chosen_wallpaper = chosen_wallpaper + 1
+  chosen_wallpaper = chosen_wallpaper % 2
+  if (chosen_wallpaper == 0) then
+    chosen_wallpaper = 2
+  end
+  set_wallpaper()
+end
 
 launcher = function() awful.util.spawn("dmenu") end
 winswitch = function()
@@ -193,7 +209,7 @@ local tasklist_buttons = gears.table.join(
                             awful.client.focus.byidx(-1)
                         end))
 
-local function set_wallpaper(s)
+function set_wallpaper(s)
     -- Wallpaper
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
@@ -213,10 +229,10 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    local names = { "main", "code", "www", "chat", "game", "obs", "7", "8", "9" }
+    local names = { "main", "2", "code", "4", "5", "www", "chat", "game", "obs" }
     local l = awful.layout.suit  -- Just to save some typing: use an alias.
-    local layouts = { l.tile, l.tile, l.max, l.tile, l.max.fullscreen,
-        l.tile, l.tile, l.tile, l.tile }
+    local layouts = { l.tile, l.tile, l.tile, l.tile, l.tile,
+        l.fullscreen, l.tile, l.max.fullscreen, l.tile }
         awful.tag(names, s, layouts)
 
 
@@ -288,6 +304,8 @@ globalkeys = gears.table.join(
               {description = "go back", group = "tag"}),
 
     awful.key({ modkey, "Shift"   }, "l", lockscreen, {description = "lock screen", group = "awesome-utils"}),
+
+    awful.key({ modkey, "Shift"   }, "x", wpp, {description = "toggle special wallpaper", group = "secret"}),
 
     awful.key({ modkey, }, "Print", screenshot_full, {description = "takes a screenshot of full screen", group = "awesome-utils"}),
 
@@ -550,7 +568,7 @@ awful.rules.rules = {
     --},
 
     -- Set web browsers to always map on the tag named "www" on screen 1.
-     { rule_any = { class = { "Firefox" , "qutebrowser", "luakit", "dillo" } },
+     { rule_any = { class = { "Firefox" , "qutebrowser", "luakit", "Luakit", "dillo" } },
        properties = { screen = 1, tag = "www" } },
      
      { rule_any = { class = { "telegram-desktop" , "Telegram", "discord" } },

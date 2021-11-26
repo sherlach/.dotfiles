@@ -85,7 +85,7 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win)
   -- Better Tabbing
   vis:command('set autoindent on')
   vis:command('set tabwidth 2')
-  vis:command('set expandtab')
+  --vis:command('set expandtab')
   vis:command('set show-tabs on')
 
   -- Consider colorcolumn at the "longest line width" eg. 60
