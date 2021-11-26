@@ -31,7 +31,7 @@ cp -v ~/.vimrc $CONFIG_FOLDER/vim
 cp -v ~/.config/alacritty/alacritty.yml $CONFIG_FOLDER/alacritty
 
 # update emacs
-#cp -v ~/.emacs.d/init.el $CONFIG_FOLDER/emacs/init.el
+cp -v ~/.emacs.d/Emacs.org $CONFIG_FOLDER/emacs/Emacs.org
 
 # update xmonad
 cp -v ~/.xmonad/xmonad.hs $CONFIG_FOLDER/xmonad/xmonad.hs
