@@ -18,9 +18,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/goyo.vim'
 Plugin 'anekos/runes-vim'
-Plugin 'axvr/org.vim' " quick editing of org files
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'kovisoft/slimv'
+Plugin 'preservim/nerdcommenter'
 Plugin 'kevna/fish-syntax'
 call vundle#end()
 filetype plugin indent on
