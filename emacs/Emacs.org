@@ -1,11 +1,10 @@
-      #+TITLE: Emacs Configuration
+      #+TITLE:Emacs Configuration
 #+PROPERTY: header-args:emacs-lisp :tangle ./init.el :mkdirp yes
 
 General list of stuff to work on.
 - Magit, Projectile and Forge for projects.
 - Workflow usage like moving around and executing commands?
 - Org-Roam? or at least org agenda magic.
-
 * TODO Faster Boot-Time:
 #+begin_src emacs-lisp
 ; From daviwil. Will experiment and tune using other sources in own time later.
@@ -29,7 +28,7 @@ General list of stuff to work on.
   (tool-bar-mode -1) ;;and the toolbar
   (tooltip-mode -1) ;;disable the tooltips, mouse is cringe.
   (set-fringe-mode 10) ;;looks better
-  (menu-bar-mode -1) ;;disable menu bar too
+  ;(menu-bar-mode -1) ;;disable menu bar too
   (setq visible-bell t) ;;silence is golden
 #+end_src
 ** Numbering
@@ -78,15 +77,36 @@ General list of stuff to work on.
   :hook prog-mode) ;mode to enable fira-code-mode in
   ;(set-frame-font "FiraCode-14" nil t)
   (set-frame-font "Hack-14" nil t)
-
 #+end_src
 ** Misc
 #+begin_src emacs-lisp
-  (electric-pair-mode 1) ;auto paren () stuff
+    (electric-pair-mode 1) ;auto paren () stuff
 
-  (global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
+    (global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
+
+  (desktop-save-mode 1) ;save desktop
 #+end_src
 
+* Editing Utils:
+** Undo-Tree
+smarter undo!
+#+begin_src emacs-lisp
+(use-package undo-tree
+  :bind (("C-x u" . undo-tree-visualize)
+         ("C-/" . undo-tree-undo)
+         ("C-?" . undo-tree-redo))
+  :config (global-undo-tree-mode))
+#+end_src
+** TODO ParEdit
+* Language Plugins:
+** LISP-like
+#+begin_src emacs-lisp
+(use-package paredit)
+#+end_src
+*** Scheme (Guile)
+#+begin_src emacs-lisp
+(use-package geiser-guile)
+#+end_src
 * Project Management:
 ** Git and Github
 #+begin_src emacs-lisp
@@ -121,10 +141,6 @@ General list of stuff to work on.
       (set-face-attribute 'org-document-title (selected-frame) :height 2.0))
 #+end_src
 ** aesthetics
-*** TODO checkboxes
-#+begin_src emacs-lisp
-   ;(set-face-attribute 'org-checkbox (selected-frame) :foreground "#000000", :background "#93a1a1" :box (:line-width -3 :color "#93a1a1" :style "released-button")))
-#+end_src
 *** bullets
 #+begin_src emacs-lisp
 (use-package org-superstar
@@ -169,7 +185,7 @@ This allows us to insert code blocks with ease with `C-c C-, scm` (for example)
 
    (use-package evil-collection
      :after evil
-     :ensure t
+     ;:ensure t
      :config
     (evil-collection-init)) ;if we start taking a performance hit, consider listing it out...
 #+end_src
@@ -226,8 +242,8 @@ I'm not sure whether or not this package is actually needed. For now I'll commen
     (use-package evil-nerd-commenter
       :bind ("M-;" . evilnc-comment-or-uncomment-lines))
 
-    ;(use-package command-log-mode) ;so I can see what combos I'm doing
-    ;(global-command-log-mode)
+    (use-package command-log-mode) ;so I can see what combos I'm doing
+    (global-command-log-mode)
     ;; to activate, use:
     ;; C-c o
 #+end_src
