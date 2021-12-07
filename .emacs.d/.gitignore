@@ -1,1 +1,4 @@
-.emacs.d/*
+elpa/
+transient/
+auto-save-list/
+.last-package-update-day
