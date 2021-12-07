@@ -1,9 +1,22 @@
-# BASH PROFILE
+#+TITLE: SHELL CONFIG
+#+PROPERTY: :mkdirp yes
+
+* BASH PROFILE
+
+Bash /should/ defer to .profile in the absence of a .bash_profile anyway, but we can add this safety net.
+
+#+begin_src shell :tangle ./.bash_profile
 
 # Defer to .profile 
 if [ -f ~/.profile ]; then . ~/.profile; fi
-# PROFILE
 
+#+end_src
+
+* PROFILE
+
+In .profile, we'll set env variables and the like. I'm not sure how many bashisms are in this file presently, ideally I'd like .profile to be suitable for being sourced by plain sh too.
+
+#+begin_src shell :tangle ./.profile
 #export SHELL
 export PATH=~/.local/bin:$PATH
 export CC="gcc"
@@ -25,8 +38,14 @@ GUIX_PROFILE="$HOME/.guix-profile"
 . "$GUIX_PROFILE"/etc/profile
 
 [ -f ~/.bashrc ] && . ~/.bashrc
-# BASHRC
+#+end_src
+** TODO do we really want to source bashrc here? what if sh is called?
 
+* BASHRC
+
+In .bashrc, we'll add aliases and customise PS1 prompt.
+
+#+begin_src shell :tangle ./.bashrc
 #if [[ $- != *i* ]]
 #then
     # We are being invoked from a non-interactive shell.  If this
@@ -54,3 +73,4 @@ alias ls='ls -p --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
 alias grep='grep --color=auto'
+#+end_src

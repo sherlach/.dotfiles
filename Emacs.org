@@ -1,4 +1,4 @@
-      #+TITLE:Emacs Configuration
+#+TITLE:Emacs Configuration
 #+PROPERTY: header-args:emacs-lisp :tangle ./.emacs.d/init.el :mkdirp yes
 
 General list of stuff to work on.

@@ -1,5 +1,3 @@
-# PROFILE
-
 #export SHELL
 export PATH=~/.local/bin:$PATH
 export CC="gcc"
