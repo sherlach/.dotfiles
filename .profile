@@ -2,6 +2,7 @@
 export PATH=~/.local/bin:$PATH
 export CC="gcc"
 export LC_COLLATE="C" #ls collates dotfiles first for dired
+export LESSHISTFILE="."
 
 
 if [[ $- != *i* ]]
@@ -15,7 +16,7 @@ then
     return
 fi
 
-GUIX_PROFILE="$HOME/.guix-profile"
+export GUIX_PROFILE="$HOME/.guix-profile"
 . "$GUIX_PROFILE"/etc/profile
 
 [ -f ~/.bashrc ] && . ~/.bashrc

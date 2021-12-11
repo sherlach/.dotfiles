@@ -21,6 +21,10 @@ In .profile, we'll set env variables and the like. I'm not sure how many bashism
 export PATH=~/.local/bin:$PATH
 export CC="gcc"
 export LC_COLLATE="C" #ls collates dotfiles first for dired
+export LESSHISTFILE="."
+
+export GUIX_PROFILE="$HOME/.guix-profile"
+. "$GUIX_PROFILE"/etc/profile
 
 
 if [[ $- != *i* ]]
@@ -34,8 +38,6 @@ then
     return
 fi
 
-GUIX_PROFILE="$HOME/.guix-profile"
-. "$GUIX_PROFILE"/etc/profile
 
 [ -f ~/.bashrc ] && . ~/.bashrc
 #+end_src

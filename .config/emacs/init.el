@@ -97,8 +97,8 @@
         org-startup-folded t)
   (set-face-attribute 'org-document-title (selected-frame) :height 2.0))
 
-(org-babel-do-load-languages
-'org-babel-load-languages '((scheme. t)))
+;(org-babel-do-load-languages
+;'org-babel-load-languages '((scheme. t)))
 
 (use-package org-superstar
 :after org
@@ -124,6 +124,9 @@
 (add-to-list 'org-structure-template-alist '("scm" . "src scheme"))
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("py" . "src python")))
+
+(add-to-list 'load-path "~/.config/emacs/emacs-org-dnd/")
+(require 'ox-dnd)
 
 (use-package evil
   :init (setq evil-want-keybinding nil evil-emacs-state-modes nil)

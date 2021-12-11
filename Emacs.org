@@ -1,5 +1,5 @@
 #+TITLE:Emacs Configuration
-#+PROPERTY: header-args:emacs-lisp :tangle ./.emacs.d/init.el :mkdirp yes
+#+PROPERTY: header-args:emacs-lisp :tangle ~/.config/emacs/init.el :mkdirp yes
 
 General list of stuff to work on.
 - Magit, Projectile and Forge for projects.
@@ -140,6 +140,14 @@ smarter undo!
             org-startup-folded t)
       (set-face-attribute 'org-document-title (selected-frame) :height 2.0))
 #+end_src
+
+** Org Babel
+Allow for execution of scheme code.
+#+begin_src emacs-lisp
+  ;(org-babel-do-load-languages
+;'org-babel-load-languages '((scheme. t)))
+#+end_src
+** TODO Org Agenda
 ** aesthetics
 *** bullets
 #+begin_src emacs-lisp
@@ -174,6 +182,12 @@ This allows us to insert code blocks with ease with `C-c C-, scm` (for example)
   (add-to-list 'org-structure-template-alist '("py" . "src python")))
 #+end_src
 
+** [[https://github.com/xeals/emacs-org-dnd][emacs org dnd]]
+git clone https://github.com/xeals/emacs-org-dnd ~/.config/emacs/emacs-org-dnd
+#+begin_src emacs-lisp
+(add-to-list 'load-path "~/.config/emacs/emacs-org-dnd/")
+(require 'ox-dnd)
+#+end_src
 * Evil Stuff (TM):
 #+begin_src emacs-lisp
    (use-package evil
