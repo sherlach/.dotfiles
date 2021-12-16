@@ -11,7 +11,7 @@
 
 
 # Source the system-wide file
-source /etc/bashrc
+#source /etc/bashrc
 
 # Adjust the prompt depending on whether we're in 'guix environment'.
 if [ -n "$GUIX_ENVIRONMENT" ]
@@ -25,3 +25,4 @@ alias ls='ls -p --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
 alias grep='grep --color=auto'
+alias python='python3'

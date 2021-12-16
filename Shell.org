@@ -18,14 +18,14 @@ In .profile, we'll set env variables and the like. I'm not sure how many bashism
 
 #+begin_src shell :tangle ./.profile
 #export SHELL
-export PATH=~/.local/bin:$PATH
-export CC="gcc"
-export LC_COLLATE="C" #ls collates dotfiles first for dired
-export LESSHISTFILE="."
 
 export GUIX_PROFILE="$HOME/.guix-profile"
 . "$GUIX_PROFILE"/etc/profile
 
+export CC="gcc"
+export LC_COLLATE="C" #ls collates dotfiles first for dired
+export LESSHISTFILE="."
+export PATH=~/.local/bin:$PATH
 
 if [[ $- != *i* ]]
 then
@@ -61,7 +61,7 @@ In .bashrc, we'll add aliases and customise PS1 prompt.
 
 
 # Source the system-wide file
-source /etc/bashrc
+#source /etc/bashrc
 
 # Adjust the prompt depending on whether we're in 'guix environment'.
 if [ -n "$GUIX_ENVIRONMENT" ]
@@ -75,4 +75,5 @@ alias ls='ls -p --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
 alias grep='grep --color=auto'
+alias python='python3'
 #+end_src

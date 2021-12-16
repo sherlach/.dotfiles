@@ -32,6 +32,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
+(add-to-list 'package-archives '("lambdaisland" . "http://lambdaisland.github.io/elpa/") t)
 (package-initialize)
 
 ;;; manually enter:
@@ -58,9 +59,13 @@
 
 (electric-pair-mode 1) ;auto paren () stuff
 
-  (global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
+      (global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
 
-(desktop-save-mode 1) ;save desktop
+;;; TEMP
+  (use-package a)
+(use-package s)
+
+    (desktop-save-mode 1) ;save desktop
 
 (use-package undo-tree
   :bind (("C-x u" . undo-tree-visualize)
@@ -97,8 +102,15 @@
         org-startup-folded t)
   (set-face-attribute 'org-document-title (selected-frame) :height 2.0))
 
-;(org-babel-do-load-languages
-;'org-babel-load-languages '((scheme. t)))
+(require 'org-install)
+(require 'ob-tangle)
+(require 'ob-python)
+;    (add-to-list 'org-babel-load-languages '(python . t))
+;    (org-babel-do-load-languages
+;     'org-babel-load-languages
+;     org-babel-load-languages)
+;      ;(org-babel-do-load-languages
+    ;'org-babel-load-languages '((scheme. t)))
 
 (use-package org-superstar
 :after org
