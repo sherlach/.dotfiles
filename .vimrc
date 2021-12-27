@@ -19,7 +19,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/goyo.vim'
 Plugin 'anekos/runes-vim'
 Plugin 'jremmen/vim-ripgrep'
-Plugin 'kovisoft/slimv'
+"Plugin 'kovisoft/slimv'
 Plugin 'preservim/nerdcommenter'
 Plugin 'kevna/fish-syntax'
 call vundle#end()

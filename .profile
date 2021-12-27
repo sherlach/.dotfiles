@@ -1,7 +1,7 @@
 #export SHELL
 
-export GUIX_PROFILE="$HOME/.guix-profile"
-. "$GUIX_PROFILE"/etc/profile
+#export GUIX_PROFILE="$HOME/.guix-profile"
+#. "$GUIX_PROFILE"/etc/profile
 
 export CC="gcc"
 export LC_COLLATE="C" #ls collates dotfiles first for dired

@@ -37,7 +37,7 @@ set -agx PATH "$HOME/.yarn/bin"
 
 fish_vi_key_bindings
 
-alias firefox firefox-bin
+#alias firefox firefox-bin
 #alias cat bat
 
-thefuck --alias | source
+#thefuck --alias | source

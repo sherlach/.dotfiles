@@ -26,3 +26,8 @@ alias ll='ls -l'
 alias la='ls -a'
 alias grep='grep --color=auto'
 alias python='python3'
+
+if command -v fish &> /dev/null
+then
+  fish
+fi
