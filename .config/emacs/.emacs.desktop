@@ -1,0 +1,115 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Fri Jan 14 18:08:11 2022
+;; Desktop file format version 208
+;; Emacs version 27.2
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (25057 8539 24924 139000) (desktop . "208") "loch@artificer" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font . "-SRC-Hack-normal-normal-normal-*-19-*-*-*-m-0-iso10646-1") (font-parameter . "Hack-14") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#B0CCDC") (background-color . "#000000") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 10) (right-fringe . 10) (no-special-glyphs) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 1) (tab-bar-lines . 0) (height . 31) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (no-focus-on-map) (no-accept-focus) (fullscreen) (visibility . t) (skip-taskbar) (z-group) (display-type . color) (background-mode . dark) (cursor-color . "#DEB45B") (environment) (powerline-cache) (last-focus-update) (frameset--id . "65C9-96E3-B986-2205") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (width . 122) (left . 0) (top . 21)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 92) (min-pixel-width . 110) (min-pixel-height-ignore . 46) (min-pixel-width-ignore . 44) (min-pixel-height-safe . 23) (min-pixel-width-safe . 22)) leaf (pixel-width . 1362) (pixel-height . 690) (total-width . 123) (total-height . 30) (normal-height . 1.0) (normal-width . 1.0) (buffer "GAME0.org" (selected . t) (hscroll . 0) (fringes 10 10 t nil) (margins 21 . 21) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 96) (start . 1)) (prev-buffers ("orgfiles" 1 212) ("go.mod" 1 1) ("hello" 1 230) ("sherlach" 1 224) ("github.com" 1 215) ("src" 1 204) ("go" 1 304) ("*scratch*" 1 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '(#("/home/loch/orgfiles/" 0 20 (ivy-index 0)) #("/home/loch/go/" 0 14 (ivy-index 0))))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/home/loch/orgfiles/GAME0.org"
+  "GAME0.org"
+  'org-mode
+  '(visual-line-mode override-global-mode evil-collection-unimpaired-mode ivy-mode counsel-mode command-log-mode which-key-mode org-indent-mode)
+  96
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 25057 8506 109433 520000) (buffer-file-coding-system . undecided-unix) (overwrite-mode) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "orgfiles"
+  'dired-mode
+  '(override-global-mode evil-collection-unimpaired-mode ivy-mode counsel-mode command-log-mode which-key-mode)
+  212
+  '(nil nil)
+  t
+  '("/home/loch/orgfiles/")
+  '((buffer-display-time 25057 7024 935983 142000) (overwrite-mode))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/loch/go/src/github.com/sherlach/hello/go.mod"
+  "go.mod"
+  'go-dot-mod-mode
+  '(override-global-mode evil-collection-unimpaired-mode ivy-mode counsel-mode command-log-mode which-key-mode)
+  1
+  '(1 nil)
+  nil
+  nil
+  '((indent-tabs-mode . t) (buffer-display-time 25057 7021 812902 637000) (buffer-file-coding-system . undecided-unix) (overwrite-mode))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "hello"
+  'dired-mode
+  '(override-global-mode evil-collection-unimpaired-mode ivy-mode counsel-mode command-log-mode which-key-mode)
+  230
+  '(nil nil)
+  t
+  '("/home/loch/go/src/github.com/sherlach/hello/")
+  '((buffer-display-time 25057 2657 498610 10000) (overwrite-mode))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "sherlach"
+  'dired-mode
+  '(override-global-mode evil-collection-unimpaired-mode ivy-mode counsel-mode command-log-mode which-key-mode)
+  224
+  '(224 nil)
+  t
+  '("/home/loch/go/src/github.com/sherlach/")
+  '((buffer-display-time 25057 2657 22077 379000) (overwrite-mode))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "github.com"
+  'dired-mode
+  '(override-global-mode evil-collection-unimpaired-mode ivy-mode counsel-mode command-log-mode which-key-mode)
+  215
+  '(215 nil)
+  t
+  '("/home/loch/go/src/github.com/")
+  '((buffer-display-time 25057 2655 557391 192000) (overwrite-mode))
+  '((mark-ring (215))))
+
+(desktop-create-buffer 208
+  nil
+  "src"
+  'dired-mode
+  '(override-global-mode evil-collection-unimpaired-mode ivy-mode counsel-mode command-log-mode which-key-mode)
+  204
+  '(204 nil)
+  t
+  '("/home/loch/go/src/")
+  '((buffer-display-time 25057 2654 951191 482000) (overwrite-mode))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "go"
+  'dired-mode
+  '(override-global-mode evil-collection-unimpaired-mode ivy-mode counsel-mode command-log-mode which-key-mode)
+  304
+  '(304 nil)
+  t
+  '("/home/loch/go/")
+  '((buffer-display-time 25057 7019 817181 849000) (overwrite-mode))
+  '((mark-ring nil)))
+

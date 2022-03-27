@@ -24,7 +24,7 @@ In .profile, we'll set env variables and the like. I'm not sure how many bashism
 
 export CC="gcc"
 export LC_COLLATE="C" #ls collates dotfiles first for dired
-export LESSHISTFILE="."
+#export LESSHISTFILE="."
 export PATH=~/.local/bin:$PATH
 
 if [[ $- != *i* ]]

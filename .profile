@@ -5,7 +5,7 @@
 
 export CC="gcc"
 export LC_COLLATE="C" #ls collates dotfiles first for dired
-export LESSHISTFILE="."
+#export LESSHISTFILE="."
 export PATH=~/.local/bin:$PATH
 
 if [[ $- != *i* ]]

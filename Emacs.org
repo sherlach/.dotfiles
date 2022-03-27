@@ -113,6 +113,12 @@ smarter undo!
 #+begin_src emacs-lisp
 (use-package geiser-guile)
 #+end_src
+** Golang
+#+begin_src emacs-lisp
+(use-package go-mode)
+
+#+end_src
+
 * Project Management:
 ** Git and Github
 #+begin_src emacs-lisp
