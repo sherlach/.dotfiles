@@ -77,6 +77,8 @@
 
 (use-package geiser-guile)
 
+(use-package go-mode)
+
 (use-package magit
   :commands (magit-status magit-get-current-branch))
 (use-package forge

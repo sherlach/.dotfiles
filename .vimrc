@@ -38,7 +38,7 @@ set number relativenumber
 set foldmethod=syntax
 set ic
 set expandtab 
-set tabstop=2 shiftwidth=2
+set tabstop=4 shiftwidth=4
 
 set wildmode=longest,list,full
 
