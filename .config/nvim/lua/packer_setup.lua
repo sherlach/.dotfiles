@@ -28,7 +28,6 @@ return require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
-
     -- https://github.com/p00f/nvim-ts-rainbow
     -- Rainbow delimiters helps with nested functions 
     -- especially lisp
@@ -40,7 +39,7 @@ return require('packer').startup(function(use)
     -- TODO - Set up the LSP
     -- https://github.com/neovim/nvim-lspconfig
 
-    -- GIT INTERFACE:
+    -- Git Integration:
     --
     -- https://github.com/TimUntersberger/neogit
     -- Negoit is Magit for Neovim, allowing us to interact
@@ -49,6 +48,30 @@ return require('packer').startup(function(use)
 	'TimUntersberger/neogit', 
 	requires = 'nvim-lua/plenary.nvim' 
     }
+
+    -- https://github.com/lewis6991/gitsigns.nvim
+    -- Gitsigns adds git decorations.
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+             require('gitsigns').setup()
+        end
+    }
+    --
+    -- Utility for comment manipulation:
+    -- https://github.com/numToStr/Comment.nvim
+    --
+    -- Useful zooming utilities:
+    -- https://github.com/nvim-telescope/telescope.nvim
+    -- https://github.com/ggandor/lightspeed.nvim
+    --
+    -- some kind of fuzzy finding?"
+    --
+    -- Completion:
+    -- https://github.com/hrsh7th/nvim-cmp
+    --
+    --
+    --
     --
     -- Cosmetics 
     --
@@ -74,17 +97,6 @@ end)
 --
 -- https://github.com/elihunter173/dirbuf.nvim (if bad, replace with other filesystem interactor)
 --
--- Utility for comment manipulation:
--- https://github.com/numToStr/Comment.nvim
---
--- Useful zooming utilities:
--- https://github.com/nvim-telescope/telescope.nvim
--- https://github.com/ggandor/lightspeed.nvim
---
--- some kind of fuzzy finding?"
---
--- Completion:
--- https://github.com/hrsh7th/nvim-cmp
 --
 --
 -- Goyo replacement:
