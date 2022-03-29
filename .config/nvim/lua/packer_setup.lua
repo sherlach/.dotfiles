@@ -58,16 +58,35 @@ return require('packer').startup(function(use)
         end
     }
     --
-    -- Utility for comment manipulation:
+    --
+    -- Utilities:
+    --
     -- https://github.com/numToStr/Comment.nvim
+    -- Comment allows for blocks and comments to be quickly added.
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
     --
-    -- Useful zooming utilities:
+    -- Movement utilities:
     -- https://github.com/nvim-telescope/telescope.nvim
+    -- Telescope allows for some fuzzy finding magic
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'}}
+    }
+
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use 'cljoly/telescope-repo.nvim'
+
     -- https://github.com/ggandor/lightspeed.nvim
+    -- Intuitive movement motions with Lightspeed!
+    use 'ggandor/lightspeed.nvim'
+
     --
-    -- some kind of fuzzy finding?"
-    --
-    -- Completion:
+    -- TODO Completion:
     -- https://github.com/hrsh7th/nvim-cmp
     --
     --
@@ -78,7 +97,6 @@ return require('packer').startup(function(use)
     -- https://github.com/folke/tokyonight.nvim
     -- TokyoNight is a dark colour scheme and theme.
     use 'folke/tokyonight.nvim'
-
     
     -- https://github.com/nvim-lualine/lualine.nvim
     --

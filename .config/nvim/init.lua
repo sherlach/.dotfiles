@@ -1,3 +1,6 @@
+-- General settings
+require('settings')
+
 -- Leaderkey custom keybindings
 require('leader')
 
@@ -6,6 +9,7 @@ require('packer_setup')
 
 -- Plugin configs
 require('plugin_configs')
+
 
 -- Plugin Manager (crucial)
 -- https://github.com/wbthomason/packer.nvim
