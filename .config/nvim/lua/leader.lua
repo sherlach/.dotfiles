@@ -11,23 +11,29 @@ end
 vim.g.mapleader = ' '
 
 -- faster save with <leader>w
-map("n", "<Leader>w", ":w!<CR>")
+map("n", "<Leader>w", "<cmd>w!<CR>")
+
+-- clear highlighted searches quickly with <leader>/
+map("n", "<Leader>/", "<cmd>let @/ = ''<CR>")
+
+-- quickly open the terminal with <leader>t
+map("n", "<Leader>t", "<cmd>terminal<CR>")
+
 
 -- Refresh Packer (plugin manager)
 -- :PackerSync binding
-map("n", "<Leader>ps", ":PackerSync<CR>")
+map("n", "<Leader>ps", "<cmd>PackerSync<CR>")
 
 -- Neogit commands
 -- :Neogit (neogit status)
-map("n", "<Leader>g", ":Neogit<CR>")
+map("n", "<Leader>g", "<cmd>Neogit<CR>")
 -- :Neogit commit (open commit popup)
-map("n", "<Leader>c", ":Neogit commit<CR>")
-
+map("n", "<Leader>c", "<cmd>Neogit commit<CR>")
 
 -- Telescope commands
-map("n", "<Leader>ff", ":Telescope find_files<CR>")
-map("n", "<Leader>fg", ":Telescope live_grep<CR>")
-map("n", "<Leader>fb", ":Telescope buffers<CR>")
-map("n", "<Leader>fh", ":Telescope help_tags<CR>")
-map("n", "<Leader>fr", ":Telescope repo list<CR>")
+map("n", "<Leader>ff", "<cmd>Telescope find_files<CR>")
+map("n", "<Leader>fg", "<cmd>Telescope live_grep<CR>")
+map("n", "<Leader>fb", "<cmd>Telescope buffers<CR>")
+map("n", "<Leader>fh", "<cmd>Telescope help_tags<CR>")
+map("n", "<Leader>fr", "<cmd>Telescope repo list<CR>")
 

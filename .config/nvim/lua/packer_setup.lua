@@ -36,6 +36,10 @@ return require('packer').startup(function(use)
 	    requires = 'nvim-treesitter/nvim-treesitter'
     }
 
+    -- https://github.com/Shatur/neovim-session-manager
+    -- A sane interface for dealing with vim sessions
+    use 'Shatur/neovim-session-manager'
+
     -- TODO - Set up the LSP
     -- https://github.com/neovim/nvim-lspconfig
 
@@ -80,6 +84,7 @@ return require('packer').startup(function(use)
 
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'cljoly/telescope-repo.nvim'
+    use {'nvim-telescope/telescope-ui-select.nvim' }
 
     -- https://github.com/ggandor/lightspeed.nvim
     -- Intuitive movement motions with Lightspeed!
@@ -105,7 +110,44 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-  -- Automatically set up your configuration after cloning packer.nvim
+    -- https://github.com/goolord/alpha-nvim
+    -- Alpha nvim gives a custom startup screen
+    use {
+        "goolord/alpha-nvim",
+        config = function ()
+            local alpha = require'alpha'
+            local dashboard = require'alpha.themes.dashboard'
+            dashboard.section.header.val = {
+                [[                               __                ]],
+                [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+                [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+                [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+                [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+                [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+            }
+            dashboard.section.buttons.val = {
+                dashboard.button( "e", "  New file" , "<cmd>ene <BAR> startinsert <CR>"),
+                dashboard.button("SPC f f", "  Find file"),
+                dashboard.button("SPC f h", "  Recently opened files"),
+                dashboard.button("SPC f r", "  Find github repos"),
+                -- button("SPC f r", "  Frecency/MRU"),
+                dashboard.button("SPC f g", "  Find word"),
+                -- button("SPC f m", "  Jump to bookmarks"),
+                dashboard.button("SPC s l", "  Open last session", ":SessionManager load_last_session<CR>"),
+                dashboard.button( "q", "  Quit NVIM" , "<cmd>qa<CR>"),
+            }
+            -- local handle = io.popen('fortune')
+            -- local fortune = handle:read("*a")
+            -- handle:close()
+            -- dashboard.section.footer.val = fortune
+            dashboard.section.footer.val = "hello there"
+            dashboard.config.opts.noautocmd = true
+            --vim.cmd[[autocmd User AlphaReady echo 'ready']]
+            alpha.setup(dashboard.config)
+        end
+    }
+
+    -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
