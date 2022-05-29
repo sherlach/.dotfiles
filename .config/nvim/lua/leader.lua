@@ -32,8 +32,9 @@ map("n", "<Leader>c", "<cmd>Neogit commit<CR>")
 
 -- Telescope commands
 map("n", "<Leader>ff", "<cmd>Telescope find_files<CR>")
-map("n", "<Leader>fg", "<cmd>Telescope live_grep<CR>")
+map("n", "<Leader>fw", "<cmd>Telescope live_grep<CR>")
 map("n", "<Leader>fb", "<cmd>Telescope buffers<CR>")
 map("n", "<Leader>fh", "<cmd>Telescope help_tags<CR>")
-map("n", "<Leader>fr", "<cmd>Telescope repo list<CR>")
 
+
+--map("n", "<Leader>fp", "<cmd>lua require'telescope'.extensions.project.project{}<CR>")

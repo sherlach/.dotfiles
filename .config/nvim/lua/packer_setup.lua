@@ -61,8 +61,6 @@ return require('packer').startup(function(use)
              require('gitsigns').setup()
         end
     }
-    --
-    --
     -- Utilities:
     --
     -- https://github.com/numToStr/Comment.nvim
@@ -83,8 +81,7 @@ return require('packer').startup(function(use)
     }
 
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use 'cljoly/telescope-repo.nvim'
-    use {'nvim-telescope/telescope-ui-select.nvim' }
+    --use {'nvim-telescope/telescope-project.nvim'}
 
     -- https://github.com/ggandor/lightspeed.nvim
     -- Intuitive movement motions with Lightspeed!
@@ -93,9 +90,6 @@ return require('packer').startup(function(use)
     --
     -- TODO Completion:
     -- https://github.com/hrsh7th/nvim-cmp
-    --
-    --
-    --
     --
     -- Cosmetics 
     --
@@ -127,11 +121,12 @@ return require('packer').startup(function(use)
             }
             dashboard.section.buttons.val = {
                 dashboard.button( "e", "  New file" , "<cmd>ene <BAR> startinsert <CR>"),
+                dashboard.button("SPC t", ">  Start terminal"),
                 dashboard.button("SPC f f", "  Find file"),
-                dashboard.button("SPC f h", "  Recently opened files"),
-                dashboard.button("SPC f r", "  Find github repos"),
+                dashboard.button("SPC f h", "  Interactive help"),
+                -- dashboard.button("SPC f p", "  Open project menu"),
                 -- button("SPC f r", "  Frecency/MRU"),
-                dashboard.button("SPC f g", "  Find word"),
+                dashboard.button("SPC f w", "  Find word"),
                 -- button("SPC f m", "  Jump to bookmarks"),
                 dashboard.button("SPC s l", "  Open last session", ":SessionManager load_last_session<CR>"),
                 dashboard.button( "q", "  Quit NVIM" , "<cmd>qa<CR>"),
@@ -156,20 +151,3 @@ end)
 
 --
 -- https://github.com/elihunter173/dirbuf.nvim (if bad, replace with other filesystem interactor)
---
---
---
--- Goyo replacement:
--- https://github.com/pocco81/truezen.nvim
---
---
---
--- DOUBTFUL
--- https://github.com/f-person/git-blame.nvim 
--- https://github.com/lewis6991/gitsigns.nvim
--- ^(dpeends on neogit quality)
---
--- Org Modey stuff:
--- https://github.com/nvim-orgmode/orgmode
--- https://github.com/jubnzv/mdeval.nvim
--- ^ doesnt support lazy load
