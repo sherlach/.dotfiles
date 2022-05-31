@@ -36,5 +36,9 @@ map("n", "<Leader>fw", "<cmd>Telescope live_grep<CR>")
 map("n", "<Leader>fb", "<cmd>Telescope buffers<CR>")
 map("n", "<Leader>fh", "<cmd>Telescope help_tags<CR>")
 
+-- TODO
+-- keybinding to display date + battery level (shell script needed?)
+-- want full timedate info + "81 Charging" for battery
+map("n", "<Leader><Leader>", '<cmd>!date "%a %d %b @ %H:%M" & cat /sys/class/power_supply/BAT1/capacity<CR>')
 
 --map("n", "<Leader>fp", "<cmd>lua require'telescope'.extensions.project.project{}<CR>")
