@@ -132,6 +132,11 @@ _G.packer_plugins = {
     path = "/home/loch/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["presence.nvim"] = {
+    loaded = true,
+    path = "/home/loch/.local/share/nvim/site/pack/packer/start/presence.nvim",
+    url = "https://github.com/andweeb/presence.nvim"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/home/loch/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -150,18 +155,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-try_loadstring("\27LJ\2\n©\a\0\0\t\0 \1@6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0019\2\4\0025\3\6\0=\3\5\0029\2\3\0019\2\a\0024\3\b\0009\4\b\1'\6\t\0'\a\n\0'\b\v\0B\4\4\2>\4\1\0039\4\b\1'\6\f\0'\a\r\0B\4\3\2>\4\2\0039\4\b\1'\6\14\0'\a\15\0B\4\3\2>\4\3\0039\4\b\1'\6\16\0'\a\17\0B\4\3\2>\4\4\0039\4\b\1'\6\18\0'\a\19\0B\4\3\2>\4\5\0039\4\b\1'\6\20\0'\a\21\0'\b\22\0B\4\4\2>\4\6\0039\4\b\1'\6\23\0'\a\24\0'\b\25\0B\4\4\0?\4\0\0=\3\5\0029\2\3\0019\2\26\2'\3\27\0=\3\5\0029\2\28\0019\2\29\2+\3\2\0=\3\30\0029\2\31\0009\4\28\1B\2\2\1K\0\1\0\nsetup\14noautocmd\topts\vconfig\16hello there\vfooter\16<cmd>qa<CR>\19ï™™  Quit NVIM\6q*:SessionManager load_last_session<CR>\27ï•®  Open last session\fSPC s l\19ïœ«  Find word\fSPC f w\26ïœ¡  Interactive help\fSPC f h\19ï¡ˆ  Find file\fSPC f f\22>  Start terminal\nSPC t$<cmd>ene <BAR> startinsert <CR>\18ï…›  New file\6e\vbutton\fbuttons\1\a\0\0006                               __                6  ___     ___    ___   __  __ /\\_\\    ___ ___    6 / _ `\\  / __`\\ / __`\\/\\ \\/\\ \\\\/\\ \\  / __` __`\\  6/\\ \\/\\ \\/\\  __//\\ \\_\\ \\ \\ \\_/ |\\ \\ \\/\\ \\/\\ \\/\\ \\ 6\\ \\_\\ \\_\\ \\____\\ \\____/\\ \\___/  \\ \\_\\ \\_\\ \\_\\ \\_\\6 \\/_/\\/_/\\/____/\\/___/  \\/__/    \\/_/\\/_/\\/_/\\/_/\bval\vheader\fsection\27alpha.themes.dashboard\nalpha\frequire\15€€À™\4\0", "config", "alpha-nvim")
-time([[Config for alpha-nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+try_loadstring("\27LJ\2\n©\a\0\0\t\0 \1@6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0019\2\4\0025\3\6\0=\3\5\0029\2\3\0019\2\a\0024\3\b\0009\4\b\1'\6\t\0'\a\n\0'\b\v\0B\4\4\2>\4\1\0039\4\b\1'\6\f\0'\a\r\0B\4\3\2>\4\2\0039\4\b\1'\6\14\0'\a\15\0B\4\3\2>\4\3\0039\4\b\1'\6\16\0'\a\17\0B\4\3\2>\4\4\0039\4\b\1'\6\18\0'\a\19\0B\4\3\2>\4\5\0039\4\b\1'\6\20\0'\a\21\0'\b\22\0B\4\4\2>\4\6\0039\4\b\1'\6\23\0'\a\24\0'\b\25\0B\4\4\0?\4\0\0=\3\5\0029\2\3\0019\2\26\2'\3\27\0=\3\5\0029\2\28\0019\2\29\2+\3\2\0=\3\30\0029\2\31\0009\4\28\1B\2\2\1K\0\1\0\nsetup\14noautocmd\topts\vconfig\16hello there\vfooter\16<cmd>qa<CR>\19ï™™  Quit NVIM\6q*:SessionManager load_last_session<CR>\27ï•®  Open last session\fSPC s l\19ïœ«  Find word\fSPC f w\26ïœ¡  Interactive help\fSPC f h\19ï¡ˆ  Find file\fSPC f f\22>  Start terminal\nSPC t$<cmd>ene <BAR> startinsert <CR>\18ï…›  New file\6e\vbutton\fbuttons\1\a\0\0006                               __                6  ___     ___    ___   __  __ /\\_\\    ___ ___    6 / _ `\\  / __`\\ / __`\\/\\ \\/\\ \\\\/\\ \\  / __` __`\\  6/\\ \\/\\ \\/\\  __//\\ \\_\\ \\ \\ \\_/ |\\ \\ \\/\\ \\/\\ \\/\\ \\ 6\\ \\_\\ \\_\\ \\____\\ \\____/\\ \\___/  \\ \\_\\ \\_\\ \\_\\ \\_\\6 \\/_/\\/_/\\/____/\\/___/  \\/__/    \\/_/\\/_/\\/_/\\/_/\bval\vheader\fsection\27alpha.themes.dashboard\nalpha\frequire\15€€À™\4\0", "config", "alpha-nvim")
+time([[Config for alpha-nvim]], false)
 if should_profile then save_profiles() end
 
 end)

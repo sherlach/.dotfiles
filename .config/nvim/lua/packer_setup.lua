@@ -103,6 +103,9 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+    -- presence
+    -- https://github.com/andweeb/presence.nvim
+    use 'andweeb/presence.nvim'
 
     -- https://github.com/goolord/alpha-nvim
     -- Alpha nvim gives a custom startup screen
